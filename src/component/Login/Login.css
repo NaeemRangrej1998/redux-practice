@@ -1,0 +1,60 @@
+#login-form{
+    width: 400px;
+    max-width: 100%;
+    margin: 50px auto;
+    background-color: rgb(188, 191, 192);
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    font-family: "Poppins", sans-serif;
+}
+#login-form h1{
+    text-align: center;
+    padding: 40px;
+    margin: 0;
+    font-size: 28px;
+    font-weight: bold;
+    color: gray;
+}
+
+#login-form form{
+    padding: 20px;
+    background-color: rgb(240, 240, 240);
+    border-radius: 10px;
+    font-family: "Poppins", sans-serif;;
+}
+#login-form form label {
+    display: block;
+    margin-bottom: 16px;
+    font-size: 14px;
+    color: gray;
+    font-family: "Poppins", sans-serif;
+}
+#login-form form input[type="text"],
+#login-form form input[type="password"] {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    font-size: 16px;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+}
+
+#login-form form input[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    background-color: dodgerblue;
+    border: none;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+}
+
+#login-form form input[type="submit"]:hover{
+    background-color: deepskyblue;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
