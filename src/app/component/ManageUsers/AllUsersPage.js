@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react'
 import {Link} from "react-router-dom";
-import {getAllUsers, getUserById} from "../../service/user.api";
+import {getAllUsers, getUserById} from "../../../service/user.api";
 import {Button, Card} from "react-bootstrap";
 import AddUser from "./AddUser";
 import EditUser from "./EditUser";

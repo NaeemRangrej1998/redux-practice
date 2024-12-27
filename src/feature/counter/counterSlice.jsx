@@ -1,5 +1,4 @@
 import {createSlice} from "@reduxjs/toolkit";
-import {PayloadAction} from "@reduxjs/toolkit";
 
 export const counterSlice = createSlice({
     name: 'counter',

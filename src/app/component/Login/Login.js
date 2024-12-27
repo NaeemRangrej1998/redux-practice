@@ -1,15 +1,16 @@
 import React, {useState} from 'react'
 import './Login.css'
-import {userLogin} from "../../service/AuthService";
+import {userLogin} from "../../../service/AuthService";
 // import {useNavigate} from "react-router-dom";
-import {setToken,setRole,clearAuth} from "../../feature/counter/authSlice";
-import {setTokenInLocalStorage} from "../../service/TokenManage";
+import {setToken,setRole,clearAuth} from "../../../feature/counter/authSlice";
+import {setTokenInLocalStorage} from "../../../service/TokenManage";
 import {useDispatch} from "react-redux";
+import {useNavigate} from "react-router-dom";
 function Login() {
-
+    console.log("Naim")
     const [userName,setUserName]=useState('')
     const [password,setPassword]=useState('');
-    // const navigate=useNavigate();
+    const navigate=useNavigate();
     const dispatch=useDispatch()
     function handleSubmit(event) {
         event.preventDefault()
@@ -21,9 +22,10 @@ function Login() {
             userLogin(request).then((res)=>{
                 if (res.status && res.status==200)
                 {
+                    localStorage.setItem('accessToken', res.data.token)
                     setTokenInLocalStorage(res.data.token)
                     dispatch(setToken(res.data.token));
-                    // navigate('/all-user')
+                    navigate('/dashboard')
                 }
                 else {
                     throw res

@@ -3,6 +3,7 @@ import './layout.scss';
 import Sidebar from './Navigation/Sidebar';
 import Footer from './Navigation/Footer';
 import NavBar from "./Navigation/Navbar";
+import {Outlet} from "react-router-dom";
 
 function Layout() {
     return (
@@ -12,7 +13,7 @@ function Layout() {
             <Sidebar/>
             <Footer/>
             <div className='content-block'>
-                {/*<Outlet />*/}
+                <Outlet />
             </div>
         </div>
     );

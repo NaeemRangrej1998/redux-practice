@@ -1,28 +1,46 @@
-import React, {useEffect, useState} from 'react'
-import {Button, Col, Form, Modal} from "react-bootstrap";
-import {Formik} from "formik";
-import {getUserById, saveUser, updateUser} from "../../service/user.api";
+import React, {useEffect, useState} from "react";
+import {Button, Col, Form, Modal, Spinner} from "react-bootstrap";
+import {Formik, Field, ErrorMessage} from 'formik';
+import {saveUser} from "../../../service/user.api";
+import {getUserRoles} from "../../../service/role.api";
 
-function EditUser(props) {
+function AddUser(props) {
     const {
-        isOpen, toggleEditUser = () => {
+        isOpen, toggleAddUser = () => {
         }, getAllSavedUsers = () => {
-        }, selectedUser
+        }
     } = props
+
+    const [roles, setRoles] = useState([]);
+
+    useEffect(() => {
+        fetchRoles();
+    }, []);
+
+    const fetchRoles = async () => {
+        try {
+            const res = await getUserRoles();
+            if (res.status === 200) {
+                setRoles(res.data);
+                console.log({roles});
+            } else {
+                console.error("Failed to fetch roles:", res);
+            }
+        } catch (err) {
+            console.error("Error fetching roles:", err);
+        }
+    };
+
+
     return (
         <div>
-            <Modal show={isOpen} aria-labelledby="contained-modal-title-vcenter" onHide={toggleEditUser} centered>
+            <Modal show={isOpen} aria-labelledby="contained-modal-title-vcenter" onHide={() => toggleAddUser} centered>
                 <Modal.Header>
                     <Modal.Title id="example-modal-sizes-title-sm">
-                        Edit User
+                        Add User
                     </Modal.Title>
                 </Modal.Header>
-                <Formik enableReinitialize={true} initialValues={{
-                    firstName: selectedUser.firstName,
-                    lastName: selectedUser.lastName,
-                    email: selectedUser.email,
-                    roleId: selectedUser.roleId
-                }}
+                <Formik initialValues={{firstName: "", lastName: "", email: "", password: "", roleId: ""}}
                         validate={(values) => {
                             const errors = {};
                             if (!values.firstName) {
@@ -38,6 +56,9 @@ function EditUser(props) {
                             ) {
                                 errors.email = "Invalid email address";
                             }
+                            if (!values.password) {
+                                errors.password = "Required";
+                            }
                             return errors;
                         }}
                         onSubmit={(values) => {
@@ -48,14 +69,15 @@ function EditUser(props) {
                                 password: values.password,
                                 roleId: values.roleId,
                             };
-                            updateUser(selectedUser.id,data).then((res) => {
+                            saveUser(data).then((res) => {
                                 if (res.status && res.status == 200) {
-                                    toggleEditUser()
+                                    toggleAddUser()
                                     getAllSavedUsers()
                                     console.log("save", res)
-                                }
+                                } else throw res
                             }).catch((error) => {
-                                alert(error.messages)
+                                console.log({error})
+                                alert(error.response.data.error)
                             })
                             console.log({values});
                         }}>
@@ -129,19 +151,40 @@ function EditUser(props) {
                                         </Form.Group>
                                         <Form.Group as={Col} className="modal-form-group">
                                             <Form.Label className={"mt-4 label-required"}>
-                                                RoleName
+                                                Password
                                             </Form.Label>
                                             <Form.Control
                                                 required
-                                                value={values.roleId}
-                                                name={"roleId"}
+                                                value={values.password}
+                                                name={"password"}
                                                 onChange={handleChange}
-                                                type="text"
+                                                type="password"
                                             />
-                                            {touched.roleId && errors.roleId ? (
+                                            {touched.password && errors.password ? (
                                                 <div className="error-message">
-                                                    {errors.roleId}
+                                                    {errors.password}
                                                 </div>
+                                            ) : null}
+                                        </Form.Group>
+                                        <Form.Group as={Col} className="modal-form-group">
+                                            <Form.Label className="mt-4 label-required">Role</Form.Label>
+                                            <Form.Select
+                                                required
+                                                value={values.roleId}
+                                                name="roleId"
+                                                onChange={handleChange}
+                                            >
+                                                <option value="" disabled>
+                                                    Select Role
+                                                </option>
+                                                {roles.map((role) => (
+                                                    <option key={role.id} value={role.id}>
+                                                        {role.rollName}
+                                                    </option>
+                                                ))}
+                                            </Form.Select>
+                                            {touched.roleId && errors.roleId ? (
+                                                <div className="error-message">{errors.roleId}</div>
                                             ) : null}
                                         </Form.Group>
                                         {/*<Form.Group>*/}
@@ -180,7 +223,7 @@ function EditUser(props) {
                             </Modal.Body>
 
                             <Modal.Footer>
-                                <Button variant="secondary" onClick={toggleEditUser}>
+                                <Button variant="secondary" onClick={toggleAddUser}>
                                     Close
                                 </Button>
                                 <Button variant="primary" type="submit">
@@ -197,4 +240,4 @@ function EditUser(props) {
     )
 }
 
-export default EditUser
+export default AddUser

@@ -1,0 +1,28 @@
+.two-container{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+
+  .add-button, .delete-button, .enable-button, .disable-button {
+
+    background-color: green;
+    color: white;
+    width: 95px;
+    height: 40px;
+    border-radius: 5px;
+    margin-right: 15px;
+    text-transform: none;
+
+
+    &:hover {
+      background-color: #989898;
+    }
+
+    svg {
+      margin-right: 5px;
+      font-size: 25px;
+    }
+  }
+}
+
+
