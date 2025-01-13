@@ -13,6 +13,7 @@ function Sidebar() {
         { id: 1, title: "Dashboard", to: "/dashboard", children: [] },
         { id: 2, title: "User Management", to: "/userlist", children: [] },
         { id: 2, title: "Role Management", to: "/rolelist", children: [] },
+        { id: 3, title: "Dialog Management", to: "/DailogPractice", children: [] },
 
     ], []);
 

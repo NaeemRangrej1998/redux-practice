@@ -6,6 +6,7 @@ import {Navigate} from "react-router-dom";
 // import AllUsersPage from "../app/component/ManageUsers/AllUsersPage";
 import UserList from "../app/component/UserManagement/UserList";
 import RoleList from "../app/component/RoleManagement/RoleList";
+import DailogPractice from "../app/component/Dailoag/DailogPractice";
 
 export const ProtectedRoutes = {
     path: "",
@@ -23,7 +24,10 @@ export const ProtectedRoutes = {
             path: "/rolelist", // Test route
             element: <RoleList/>,
         },
-
+        {
+            path: "/DailogPractice", // Test route
+            element: <DailogPractice/>,
+        },
         // Add other child routes here
     ],
     // children: [
