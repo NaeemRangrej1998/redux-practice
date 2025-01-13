@@ -6,6 +6,7 @@ const Router = () => {
     console.log('ProtectedRoutes:', ProtectedRoutes,PublicRoutes);
 
     const routes = [ProtectedRoutes, ...PublicRoutes];
+
     return useRoutes(routes);
 };
 

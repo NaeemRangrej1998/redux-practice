@@ -1,13 +1,11 @@
 import {
     Grid, Button, TextField, Paper, TableContainer, TableHead, TableRow, Table, TableBody, TableCell, Pagination
 } from "@mui/material";
-import PlusIcon from "../../../assets/icons/PlusIcon";
-import EnableIcon from "../../../assets/icons/EnableIcon";
-import DisableIcon from "../../../assets/icons/DisableIcon";
+
 // import {Button} from "react-bootstrap";
 import '../UserManagement/style/userlist.scss'
 import {TableRows} from "@mui/icons-material";
-import React, {useEffect, useState} from "react";
+import React, {useEffect, useRef, useState} from "react";
 import {getAllUsers} from "../../../service/user.api";
 import {Box} from "@mui/system";
 import AddUser from "../ManageUsers/AddUser";
@@ -42,18 +40,27 @@ export const UserList = () => {
                 setUser({
                     data: res.data.content,
                 })
-                setTotalPages(res.totalPages)
+                setTotalPages(res.data.totalPages)
             }
             console.log({res});
         })
     }
     const handleChangePage = (event, newPage) => {
-        setPage(newPage)
+        setPage(newPage-1)
     };
     const toggleAddUser = () => {
         setIsOpen(!isOpen)
+        setIsEditing(false)
         console.log({isOpen});
     }
+
+    function handleEdit(row) {
+        console.log({row});
+        setSelectedUser(row)
+        setIsEditing(true)
+        setIsOpen(true)
+    }
+
     return (<div>
         <Grid container style={{width: '100%', overflow: 'auto'}} className="grid-container">
             <Grid item xs={12}>
@@ -70,7 +77,7 @@ export const UserList = () => {
                     <div>
                         <Button className="add-button" size="medium" onClick={toggleAddUser}
                         >
-                            <PlusIcon/> Add
+                             Add
                         </Button>
                     </div>
                     <div>
@@ -125,7 +132,7 @@ export const UserList = () => {
                                                     >
                                                         <IconButton
                                                             color="primary"
-                                                            // onClick={() => handleEdit(rows.id)}
+                                                            onClick={() => handleEdit(rows)}
                                                         >
                                                             <Edit />
                                                         </IconButton>
@@ -157,6 +164,8 @@ export const UserList = () => {
             isOpen={isOpen}
             toggleAddUser={toggleAddUser}
             getAllSavedUsers={getAllSavedUsers}
+            selectedUser={selectedUser}
+            isEditing={isEditing}
         />
     </div>)
 }

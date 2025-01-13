@@ -1,16 +1,18 @@
 import React, {useEffect, useState} from "react";
 import {Button, Col, Form, Modal, Spinner} from "react-bootstrap";
 import {Formik, Field, ErrorMessage} from 'formik';
-import {saveUser} from "../../../service/user.api";
+import {saveUser, updateUser} from "../../../service/user.api";
 import {getUserRoles} from "../../../service/role.api";
 
 function AddUser(props) {
     const {
         isOpen, toggleAddUser = () => {
         }, getAllSavedUsers = () => {
-        }
+        },
+        selectedUser,
+        isEditing
     } = props
-
+    console.log({selectedUser});
     const [roles, setRoles] = useState([]);
 
     useEffect(() => {
@@ -40,7 +42,8 @@ function AddUser(props) {
                         Add User
                     </Modal.Title>
                 </Modal.Header>
-                <Formik initialValues={{firstName: "", lastName: "", email: "", password: "", roleId: ""}}
+                <Formik initialValues={{firstName: isEditing ? selectedUser.firstName: "", lastName: isEditing ? selectedUser.lastName: ""
+                    , email: isEditing ? selectedUser.email: "", password: isEditing ? selectedUser.password: "", roleId: isEditing ? selectedUser.roleId: ""}}
                         validate={(values) => {
                             const errors = {};
                             if (!values.firstName) {
@@ -69,7 +72,11 @@ function AddUser(props) {
                                 password: values.password,
                                 roleId: values.roleId,
                             };
-                            saveUser(data).then((res) => {
+                            if (isEditing){
+                                data["id"]=selectedUser.id
+                            }
+                            let saveOrUpdateUserData = isEditing ? updateUser : saveUser
+                            saveOrUpdateUserData(data).then((res) => {
                                 if (res.status && res.status == 200) {
                                     toggleAddUser()
                                     getAllSavedUsers()

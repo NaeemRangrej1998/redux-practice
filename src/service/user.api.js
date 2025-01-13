@@ -10,6 +10,7 @@ export const UPDATE_USER = USER + "/updateUser"
 export const GET_USER_BY_ID = USER + "/getUser"
 
 export function getAllUsers(pageNumber, pageSize) {
+    console.log({pageNumber,pageSize});
     return axiosInstance.get(`${GET_ALL_USERS}?pageNo=${pageNumber}&pageSize=${pageSize}`).then((res) => res.data)
 }
 
@@ -17,7 +18,9 @@ export function saveUser(data) {
     return axiosInstance.post(`${SAVE_USER}`, data).then((res) => res.data)
 }
 
-export function updateUser(userId,data) {
+export function updateUser(data) {
+    let userId = data.id;
+    delete data["id"]
     return axiosInstance.put(`${UPDATE_USER}/${userId}`, data).then((res) => res.data)
 }
 
