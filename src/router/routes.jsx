@@ -7,6 +7,7 @@ import {Navigate} from "react-router-dom";
 import UserList from "../app/component/UserManagement/UserList";
 import RoleList from "../app/component/RoleManagement/RoleList";
 import DailogPractice from "../app/component/Dailoag/DailogPractice";
+import ForgotPassword from "../app/component/Login/ForgotPassword";
 
 export const ProtectedRoutes = {
     path: "",
@@ -43,6 +44,10 @@ export const PublicRoutes = [
     {
         path: "/login",
         element: <Login />,
+    },
+    {
+        path: "/forgot-password",
+        element: <ForgotPassword />,
     },
     {
         path: "*",

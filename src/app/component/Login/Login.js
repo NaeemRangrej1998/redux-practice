@@ -5,7 +5,7 @@ import {userLogin} from "../../../service/AuthService";
 import {setToken,setRole,clearAuth} from "../../../feature/counter/authSlice";
 import {setTokenInLocalStorage} from "../../../service/TokenManage";
 import {useDispatch} from "react-redux";
-import {useNavigate} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 function Login() {
     console.log("Naim")
     const [userName,setUserName]=useState('')
@@ -44,13 +44,16 @@ function Login() {
     return (
         <div id="login-form">
             <h1> Login </h1>
-                <form onSubmit={handleSubmit}>
-                    <label>Username</label>
-                    <input type="text" id="username" name="username" onChange={(e)=>setUserName(e.target.value)}/>
-                    <label>Password</label>
-                    <input type="password" id="password" name="password" onChange={(e)=>setPassword(e.target.value)}/>
-                    <input type="submit" value="submit"/>
-                </form>
+            <form onSubmit={handleSubmit}>
+                <label>Username</label>
+                <input type="text" id="username" name="username" onChange={(e) => setUserName(e.target.value)}/>
+                <label>Password</label>
+                <input type="password" id="password" name="password" onChange={(e) => setPassword(e.target.value)}/>
+                <input type="submit" value="submit"/>
+                <div className="forgot-password">
+                    <Link to="/forgot-password">Forgot Password?</Link>
+                </div>
+            </form>
         </div>
     )
 }

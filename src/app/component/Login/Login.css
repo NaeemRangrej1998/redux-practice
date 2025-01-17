@@ -58,3 +58,8 @@
     background-color: deepskyblue;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 }
+.forgot-password {
+    margin-top: 15px;
+    text-align: right;
+    font-size: 18px;
+}

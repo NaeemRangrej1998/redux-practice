@@ -10,6 +10,7 @@ import Router from "./router";
 import {SnackbarProvider} from "notistack";
 import 'bootstrap/dist/css/bootstrap.min.css';
 // import '@fortawesome/fontawesome-free/css/all.min.css';
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 console.log("Test")
 root.render(

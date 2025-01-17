@@ -21,12 +21,12 @@ export const DailogPractice = () => {
                 Add Widget
             </Button>
         </div>
-            {isOpen && (
-                    <OpenDailog
-                    isOpen={isOpen}
-                    onClose={handleClose}
-                />
-            )}
+            {/*{isOpen && (*/}
+            {/*        <OpenDailog*/}
+            {/*        isOpen={isOpen}*/}
+            {/*        onClose={handleClose}*/}
+            {/*    />*/}
+            {/*)}*/}
         </>
     )
 }
