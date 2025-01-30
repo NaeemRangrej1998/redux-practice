@@ -9,3 +9,6 @@ export function userLogin(credentials){
 export function getUserEmail(credentials){
     return axios.post(`${BASE_URL}/forgot-password`,credentials).then(res=>res.data)
 }
+export function resetPassword(credentials){
+    return axios.post(`${BASE_URL}/reset-password`,credentials).then(res=>res.data)
+}

@@ -1,6 +1,8 @@
 import React, {useState} from 'react'
 import './Login.css'
-import {getUserEmail, userLogin} from "../../../service/AuthService";
+import {getUserEmail, resetPassword, userLogin} from "../../../service/AuthService";
+import { useLocation } from "react-router-dom";
+
 // import {useNavigate} from "react-router-dom";
 import {setToken,setRole,clearAuth} from "../../../feature/counter/authSlice";
 import {setTokenInLocalStorage} from "../../../service/TokenManage";
@@ -8,32 +10,31 @@ import {useDispatch} from "react-redux";
 import {Link, useNavigate} from "react-router-dom";
 import {Button} from "react-bootstrap";
 import showNotification from "../../../shared/helper/notification";
-function ForgotPassword() {
-    console.log("Naim")
-    const [userName,setUserName]=useState('')
+function ResetPassword() {
+    const [password,setPassword]=useState('');
     const navigate=useNavigate();
-    const baseUrl = `${window.location.protocol}//${window.location.host}/`;
-    console.log(baseUrl);
+    const dispatch=useDispatch()
+    const searchParams = new URLSearchParams(window.location.search);
+    const token = searchParams.get('token');
+    console.log({token});
 
     function handleSubmit(event) {
         event.preventDefault()
         try {
             const request={
-                email:userName,
-                hostName:baseUrl
+                newPassword:password,
+                resetToken:token
             }
-            getUserEmail(request).then((res)=>{
+            resetPassword(request).then((res)=>{
                 console.log({res});
                 if (res.status === 200) {
                     navigate('/login');
                     showNotification(res.message,'success');
-                } else {
-                    throw res
-                }
+                } else if (res.status === 404 || res.status === 401 || res.status === 400) {
+                    showNotification(res.response.data.message, "error");
+                } else showNotification(res.response.data.message, "error");
+                // console.log({res})
             }).catch((error)=>{
-                console.log(error)
-                let message =error.response.data.error
-                showNotification(message,'error');
                 console.log(error)
             })
         }
@@ -45,18 +46,13 @@ function ForgotPassword() {
 
     return (
         <div id="login-form">
-            <h1> Forgot Password </h1>
+            <h1> Reset Password </h1>
             <form onSubmit={handleSubmit}>
-                <label>Email</label>
-                <input type="text" id="Email" name="Email" onChange={(e) => setUserName(e.target.value)}/>
-                <div className="submit">
+                <label>New Password</label>
+                <input type="password" id="password" name="password" onChange={(e) => setPassword(e.target.value)}/>
+                <div>
                     <input type="submit" value="submit"/>
-                    <Link to="/login">
-                        <button
-                            type="button">
-                            Back
-                        </button>
-                    </Link>
+                    {/*<Button>Back</Button>*/}
                 </div>
 
             </form>
@@ -64,4 +60,4 @@ function ForgotPassword() {
     )
 }
 
-export default ForgotPassword
+export default ResetPassword

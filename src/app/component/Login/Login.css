@@ -41,7 +41,7 @@
 }
 
 #login-form form input[type="submit"] {
-    width: 100%;
+    /*width: 100%;*/
     padding: 12px;
     background-color: dodgerblue;
     border: none;
@@ -62,4 +62,9 @@
     margin-top: 15px;
     text-align: right;
     font-size: 18px;
+}
+.submit{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }

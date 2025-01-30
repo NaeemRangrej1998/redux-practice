@@ -8,6 +8,7 @@ import UserList from "../app/component/UserManagement/UserList";
 import RoleList from "../app/component/RoleManagement/RoleList";
 import DailogPractice from "../app/component/Dailoag/DailogPractice";
 import ForgotPassword from "../app/component/Login/ForgotPassword";
+import ResetPassword from "../app/component/Login/ResetPassword";
 
 export const ProtectedRoutes = {
     path: "",
@@ -50,9 +51,14 @@ export const PublicRoutes = [
         element: <ForgotPassword />,
     },
     {
-        path: "*",
-        element: <Navigate to="/login" replace />,
-    },
+        path: "/reset-password",
+        element: <ResetPassword />,
+    }
+    // ,
+    // {
+    //     path: "*",
+    //     element: <Navigate to="/login" replace />,
+    // },
 ];
 
 
