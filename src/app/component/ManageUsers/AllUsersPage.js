@@ -59,6 +59,7 @@ function AllUsersPage() {
             console.error(error)
         })
     }
+    console.log("data",user.data)
     return (
         <div className="mt-5">
             <div className="row">

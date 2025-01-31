@@ -186,7 +186,7 @@ function AddUser(props) {
                                                 </option>
                                                 {roles.map((role) => (
                                                     <option key={role.id} value={role.id}>
-                                                        {role.rollName}
+                                                        {role.roleName}
                                                     </option>
                                                 ))}
                                             </Form.Select>

@@ -46,3 +46,30 @@ axiosInstance.interceptors.response.use(
     }
 )
 
+const requestConfig = (options) => {
+    const config = {
+        headers: options.headers || { 'Content-Type': 'application/json' },
+        url: options.url,
+        method: options.method,
+        ...options,
+    };
+
+    if (options.body) config.data = options.body;
+    if (options.params) config.params = options.params;
+    if (options.cancelToken) config.cancelToken = options.cancelToken;
+
+    return config;
+};
+
+export const request = (options) => {
+    const config = requestConfig(options);
+    if (navigator.onLine) {
+        return axiosInstance.request(config);
+    }
+    return {
+        status: false,
+        message: 'Internet Disconnected',
+    };
+};
+
+export default request;

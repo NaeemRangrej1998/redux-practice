@@ -11,7 +11,7 @@ export const GET_USER_BY_ID = USER + "/getUser"
 
 export function getAllUsers(pageNumber, pageSize) {
     console.log({pageNumber,pageSize});
-    return axiosInstance.get(`${GET_ALL_USERS}?pageNo=${pageNumber}&pageSize=${pageSize}`).then((res) => res.data)
+    return axiosInstance.get(`${GET_ALL_USERS}?pageNo=${pageNumber}&pageSize=${pageSize}`).then((res) => res)
 }
 
 export function saveUser(data) {

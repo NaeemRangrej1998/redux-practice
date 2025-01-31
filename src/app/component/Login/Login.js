@@ -6,6 +6,7 @@ import {setToken,setRole,clearAuth} from "../../../feature/counter/authSlice";
 import {setTokenInLocalStorage} from "../../../service/TokenManage";
 import {useDispatch} from "react-redux";
 import {Link, useNavigate} from "react-router-dom";
+import showNotification from "../../../shared/helper/notification";
 function Login() {
     console.log("Naim")
     const [userName,setUserName]=useState('')
@@ -20,7 +21,7 @@ function Login() {
                 password:password
             }
             userLogin(request).then((res)=>{
-                if (res.status && res.status==200)
+                if (res.status && res.status===200)
                 {
                     localStorage.setItem('accessToken', res.data.token)
                     setTokenInLocalStorage(res.data.token)
@@ -32,11 +33,13 @@ function Login() {
                 }
                 console.log({res})
             }).catch((error)=>{
-                console.log(error)
+                let message =error.response.data.error
+                showNotification(message,'error');
             })
         }
         catch (error){
-            console.log(error)
+            let message =error.response.data.error
+            showNotification(message,'error');
         }
 
     }
