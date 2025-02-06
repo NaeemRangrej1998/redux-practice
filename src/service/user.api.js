@@ -9,21 +9,21 @@ export const UPDATE_USER = USER + "/updateUser"
 
 export const GET_USER_BY_ID = USER + "/getUser"
 
-export function getAllUsers(pageNumber, pageSize) {
-    console.log({pageNumber,pageSize});
-    return axiosInstance.get(`${GET_ALL_USERS}?pageNo=${pageNumber}&pageSize=${pageSize}`).then((res) => res)
+export function getAllUsers(pageNumber, pageSize,searchValue) {
+    console.log({pageNumber,pageSize,searchValue});
+    return axiosInstance.get(`${GET_ALL_USERS}?searchValue=${searchValue}&pageNo=${pageNumber}&pageSize=${pageSize}`).then((res) => res)
 }
 
 export function saveUser(data) {
-    return axiosInstance.post(`${SAVE_USER}`, data).then((res) => res.data)
+    return axiosInstance.post(`${SAVE_USER}`, data).then((res) => res)
 }
 
 export function updateUser(data) {
     let userId = data.id;
     delete data["id"]
-    return axiosInstance.put(`${UPDATE_USER}/${userId}`, data).then((res) => res.data)
+    return axiosInstance.put(`${UPDATE_USER}/${userId}`, data).then((res) => res)
 }
 
 export function getUserById(userId) {
-    return axiosInstance.get(`${GET_USER_BY_ID}/${userId}`).then((res)=>res.data)
+    return axiosInstance.get(`${GET_USER_BY_ID}/${userId}`).then((res)=>res)
 }

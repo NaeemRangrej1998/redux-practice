@@ -12,7 +12,6 @@ function AddUser(props) {
         selectedUser,
         isEditing
     } = props
-    console.log({selectedUser});
     const [roles, setRoles] = useState([]);
 
     useEffect(() => {
