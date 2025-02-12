@@ -9,6 +9,7 @@ import RoleList from "../app/component/RoleManagement/RoleList";
 import DailogPractice from "../app/component/Dailoag/DailogPractice";
 import ForgotPassword from "../app/component/Login/ForgotPassword";
 import ResetPassword from "../app/component/Login/ResetPassword";
+import ManageTask from "../dragAndDrop/ManageTask";
 
 export const ProtectedRoutes = {
     path: "",
@@ -25,6 +26,10 @@ export const ProtectedRoutes = {
         {
             path: "/rolelist", // Test route
             element: <RoleList/>,
+        },
+        {
+            path: "/taskManage", // Test route
+            element: <ManageTask/>,
         },
         {
             path: "/DailogPractice", // Test route

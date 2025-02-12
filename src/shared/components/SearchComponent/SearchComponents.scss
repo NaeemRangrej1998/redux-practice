@@ -1,0 +1,72 @@
+.searchBar {
+  box-shadow: none !important;
+  //width: 400px;
+  background: transparent;
+
+  .MuiTextField-root{
+    margin-left: 0px;
+  }
+
+  .MuiInputBase-root {
+    width: 270px;
+    height: 30px;
+    background: #ffffff;
+    padding-left: 7px;
+    padding-right: 3px;
+
+    svg {
+      color: #000000;
+      transform: rotate(90deg);
+    }
+
+      ::-webkit-input-placeholder {
+      /* Edge */
+      opacity: 1;
+      color: #989eaa;
+    }
+
+    :-ms-input-placeholder {
+      /* Internet Explorer 10-11 */
+      opacity: 1;
+      color: #989eaa;
+    }
+
+    ::placeholder {
+      opacity: 1;
+      color: #989eaa;
+    }
+  }
+
+  .Mui-focused {
+    fieldset {
+      border-width: 1px !important;
+    }
+  }
+
+  button {
+    padding: 5px;
+    svg {
+      font-size: 14px;
+    }
+  }
+  input {
+    font-size: 14px;
+    &::-webkit-input-placeholder {
+      /* Edge */
+      color: #989eaa;
+      font-size: 14px;
+    }
+    &:-ms-input-placeholder {
+      /* Internet Explorer 10-11 */
+      color: #989eaa;
+      font-size: 14px;
+    }
+    &::placeholder {
+      color: #989eaa;
+      font-size: 14px;
+    }
+  }
+}
+.MuiOutlinedInput-notchedOutline {
+  border: 1px solid rgba(0,0,0,0.23) !important;
+}

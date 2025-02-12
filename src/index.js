@@ -11,12 +11,15 @@ import {SnackbarProvider} from "notistack";
 import 'bootstrap/dist/css/bootstrap.min.css';
 // import '@fortawesome/fontawesome-free/css/all.min.css';
 import "@fortawesome/fontawesome-free/css/all.min.css";
+import { HTML5Backend } from 'react-dnd-html5-backend';
+import { DndProvider } from 'react-dnd';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 console.log("Test")
 root.render(
     // <React.StrictMode>
+    <DndProvider backend={HTML5Backend}>
     <Provider store={store}>
         <SnackbarProvider>
             <BrowserRouter>
@@ -26,6 +29,7 @@ root.render(
             </BrowserRouter>
         </SnackbarProvider>
     </Provider>
+    </DndProvider>
     // </React.StrictMode>
 );
 

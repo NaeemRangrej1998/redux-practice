@@ -7,7 +7,7 @@
 .content-block {
   background-color: rgb(255, 255, 255);
   //position: relative;
-  overflow: auto !important;
+  overflow: hidden !important;
   padding: 20px 0 20px 10px;
   height: calc(100vh - 155px);
   width: calc(100vw - 340px);

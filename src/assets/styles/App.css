@@ -1,0 +1,121 @@
+/*.main_div {*/
+/*    display: flex;*/
+/*    width: 50%;*/
+/*    padding: 30px;*/
+/*    justify-content: space-between;*/
+/*    background-color: antiquewhite;*/
+/*    text-align: center;*/
+/*}*/
+@font-face {
+    font-family: "DavidLibre";
+    src: local("DavidLibre"),
+    url(../fonts/DavidLibre-Regular.ttf) format("truetype");
+}
+
+p {
+    font-family: DavidLibre, serif;
+    font-weight: bold;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.column {
+    height: max-content;
+    min-height: 100px;
+    width: 205px;
+    margin: 10px;
+    border-radius: 10px;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    border: 2px solid #7d7d7d;
+    /* display: flex; */
+    /* justify-content: center; */
+    /* flex-wrap: wrap; */
+    max-height: 400px;
+    overflow: auto;
+}
+
+.do-it-column {
+    background-color: #fff0f0;
+}
+
+.in-progress-column {
+    background-color: #fef2e7;
+}
+
+.awaiting-review-column {
+    background-color: #fffada;
+}
+
+.done-column {
+    background-color: #f5ffe5;
+}
+
+.movable-item {
+    position: relative;
+    border-radius: 5px;
+    background-color: #fafdff;
+    height: 100px;
+    width: 140px;
+    margin: 10px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.5);
+}
+.add-icon {
+    cursor: pointer;
+    color: #007bff;
+    width: 100%;
+    background-color: antiquewhite;
+    height: 25px;
+}
+
+.add-icon:hover {
+    color: #0056b3;
+}
+.text-field{
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+/* margin: auto; */
+    margin-top: 2%;
+    margin-bottom: 1%;
+    column-gap: 7px;
+
+}
+.movable-item:hover .update_task {
+    display: flex;
+}
+.update_task {
+    display: none;
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    gap: 8px;
+}
+
+.icon {
+    cursor: pointer;
+    font-size: 16px;
+    transition: 0.3s ease;
+}
+
+.edit-icon {
+    color: #007bff;
+}
+
+.edit-icon:hover {
+    color: #0056b3;
+}
+
+.delete-icon {
+    color: #dc3545;
+}
+
+.delete-icon:hover {
+    color: #a71d2a;
+}

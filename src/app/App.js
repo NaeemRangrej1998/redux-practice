@@ -4,6 +4,7 @@ import {Suspense, useEffect, useState} from "react";
 import Layout from "./Layout";
 import Login from "./component/Login/Login";
 import {Navigate, useLocation, useNavigate} from "react-router-dom";
+import BlockLoader from "../shared/components/Loader/BlockLoader";
 
 function App() {
     const {token, role} = useSelector(state => state.auth)
@@ -19,11 +20,9 @@ function App() {
     const checkAuth = () => {
 
         const authToken = localStorage.getItem('accessToken')
-        const pathname = location.pathname
-
         if (authToken && token ) {
             setIsLoggedIn(true);
-            navigate('/dashboard')
+            navigate(location.pathname);
         } else {
             setIsLoggedIn(false);
             navigate('/logout')
@@ -34,16 +33,19 @@ function App() {
     useEffect(() => {
         checkAuth();
     }, [token, role]);
-
+    if (isLoading) {
+        return <BlockLoader isMain={true} />; // Show loader while checking auth
+    }
     return (
         <>
             {!token && <Navigate to={'/login'} /> }
-
-            {
-                isLoggedIn ? (<Suspense fallback={<div className="loading">Loading...</div>}>
-                    <Layout/>
-                </Suspense>) : (<Login/>)
-            }
+            {isLoggedIn ? (
+                <Suspense fallback={<BlockLoader isMain={true} />}>
+                    <Layout />
+                </Suspense>
+            ) : (
+                <Login />
+            )}
         </>
 
 
