@@ -21,7 +21,6 @@ export const AddEditRole = (props) => {
                     </Modal.Title>
                 </Modal.Header>
                 <Formik initialValues={{roleName: props.isEditing ? props.roleName : " "}} onSubmit={(values)=>{
-                    console.log({values})
                     let data= {
                         roleName:values.roleName
                     }
@@ -36,12 +35,10 @@ export const AddEditRole = (props) => {
                         props.getAllRoles()
                     }
                     else throw response
-                    console.log({response})
                 }).catch((error)=>{
                     showNotification(error.error,'error')
                     props.toggleAddRole()
                     props.getAllRoles()
-                    console.log(error)
                 })
                 }}>
                     {({

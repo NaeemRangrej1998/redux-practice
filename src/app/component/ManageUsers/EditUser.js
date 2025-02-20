@@ -52,12 +52,10 @@ function EditUser(props) {
                                 if (res.status && res.status == 200) {
                                     toggleEditUser()
                                     getAllSavedUsers()
-                                    console.log("save", res)
                                 }
                             }).catch((error) => {
                                 alert(error.messages)
                             })
-                            console.log({values});
                         }}>
                     {({
                           values,

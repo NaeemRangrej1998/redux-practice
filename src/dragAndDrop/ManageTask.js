@@ -11,7 +11,6 @@ const ManageTask = () => {
     const [items, setItems] = useState([]);
     const [taskName, setTaskName] = useState(  '')
     const moveCardHandler = (dragIndex, hoverIndex) => {
-        console.log("Call But When")
         const dragItem = items[dragIndex];
 
         if (dragItem) {
@@ -19,7 +18,6 @@ const ManageTask = () => {
                 const copiedState = [...prevState];
                 copiedState.splice(hoverIndex, 1, dragItem);
                 copiedState.splice(dragIndex, 1, prevState[hoverIndex]);
-                console.log({copiedState})
                 return copiedState;
             });
         }
@@ -43,7 +41,6 @@ const ManageTask = () => {
             ));
     };
     const handleAddTask = () => {
-        console.log("Before Adding Task", items);
         if (!taskName.trim()) {
             showNotification("Task name cannot be empty!", "error");
             return;
@@ -51,7 +48,6 @@ const ManageTask = () => {
         setItems((prevState) => {
             // Find the highest ID in the existing tasks
             const lastId = prevState.length > 0 ? Math.max(...prevState.map(item => item.id)) : 0;
-            console.log({lastId});
             // Create new task with incremented ID
             const newTask = {
                 id: lastId + 1,
@@ -67,7 +63,7 @@ const ManageTask = () => {
                else throw res
             }).catch((error)=>{
                 showNotification(error.error,'error')
-                console.log(error)
+                // console.log(error)
             })
             return [...prevState, newTask];
         });
@@ -83,7 +79,7 @@ const ManageTask = () => {
             else throw res
         }).catch((error)=>{
             showNotification(error.error,'error')
-            console.log(error)
+            // console.log(error)
         })
     }
     // Use useEffect to see the updated state

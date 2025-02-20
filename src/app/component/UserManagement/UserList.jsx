@@ -44,11 +44,9 @@ export const UserList = () => {
     const toggleAddUser = () => {
         setIsOpen(!isOpen)
         setIsEditing(false)
-        console.log({isOpen});
     }
 
     function handleEdit(row) {
-        console.log({row});
         setSelectedUser(row)
         setIsEditing(true)
         setIsOpen(true)
@@ -77,7 +75,6 @@ export const UserList = () => {
                 })
                 setTotalPages(res.data.totalPages)
             }
-            console.log({res});
         })
     }
 

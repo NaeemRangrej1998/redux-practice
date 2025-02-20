@@ -1,23 +1,22 @@
 import React from 'react';
-import { Navigate } from 'react-router-dom';
+import {Navigate, useLocation} from 'react-router-dom';
 import redirectionEnum from "../enums/redirection.enum";
 import { useSelector } from "react-redux";
 
 const Protected = ({ children, roles }) => {
     const auth = useSelector((state) => state.auth);
+    const location = useLocation();
 
     const isAuthorized = () => {
-        // Check if roles is undefined or empty, or if user's role is included
         return !roles || roles.length === 0 || roles.includes(auth.role);
     };
-
+    // Check for token first
     if (!auth.token) {
-        // If not authenticated, redirect to login
-        return <Navigate to="/login" />;
+        return <Navigate to="/login" state={{ from: location }} />;
     }
 
+    // Then check authorization
     if (!isAuthorized()) {
-        // If authenticated but not authorized, redirect to appropriate role-based route
         return <Navigate to={redirectionEnum[auth?.role] || '/'} />;
     }
 

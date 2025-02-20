@@ -26,7 +26,6 @@ function ResetPassword() {
                 resetToken:token
             }
             resetPassword(request).then((res)=>{
-                console.log({res});
                 if (res.status === 200) {
                     navigate('/login');
                     showNotification(res.message,'success');

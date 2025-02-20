@@ -14,11 +14,10 @@ const MovableItem = ({
                          getAllTasks = () => {},
                          items
                      }) => {
-    console.log({id})
     const ref = useRef(null);
 
     const changeItemColumn = async (currentItem, columnName) => {
-        console.log({currentItem, columnName})
+        // console.log({currentItem, columnName})
         try {
             // Find the task to update
             const taskToUpdate = items.find(task => task.id === currentItem.id);
@@ -107,15 +106,14 @@ const MovableItem = ({
         collect: (monitor) => {
             const dragging = monitor.isDragging();
             if (dragging) {
-                console.log(`Dragging started: ${name} (ID: ${id}) (currentColumnName:${currentColumnName})`);
+                // console.log(`Dragging started: ${name} (ID: ${id}) (currentColumnName:${currentColumnName})`);
             }
             return { isDragging: dragging };
         },
         end: (item, monitor) => {
             const dropResult = monitor.getDropResult();
             if (dropResult) {
-                console.log({dropResult})
-                console.log(`Dropped ${item.name} (ID: ${item.id}) into ${dropResult.name}`);
+                // console.log(`Dropped ${item.name} (ID: ${item.id}) into ${dropResult.name}`);
                 changeItemColumn(item, dropResult.name);
             } else {
                 console.log(`Dragging ended without dropping for ${item.name} (ID: ${item.id})`);

@@ -31,12 +31,10 @@ function AllUsersPage() {
                     pageNumber: currentPage
                 })
             }
-            console.log({res});
         })
     }
     const toggleAddUser = () => {
         setIsOpen(!isOpen)
-        console.log({isOpen});
     }
 
     const toggleEditUser = (id) => {
@@ -49,7 +47,6 @@ function AllUsersPage() {
     }
     const getUser = (selectedId) => {
         getUserById(selectedId).then((res) => {
-            console.log(res.data)
             if (res.status && res.status == 200) {
                 setSelectedUser(res.data)
             } else {
@@ -59,7 +56,6 @@ function AllUsersPage() {
             console.error(error)
         })
     }
-    console.log("data",user.data)
     return (
         <div className="mt-5">
             <div className="row">

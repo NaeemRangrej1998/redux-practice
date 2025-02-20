@@ -4,7 +4,6 @@ import {Card} from "react-bootstrap";
 
 const IndexDashboard = () => {
     // const location = useLocation();
-    console.log("Current location:");
     return (
         <>
             <div>

@@ -6,7 +6,7 @@ export const DailogPractice = () => {
     const [isOpen, setIsOpen] = useState(false)
 
     const handleToggle=()=> {
-        console.log("Calls")
+        // console.log("Calls")
         setIsOpen(true)
     }
 

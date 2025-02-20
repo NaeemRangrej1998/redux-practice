@@ -1,8 +1,3 @@
-// import React, { useEffect, useState, useMemo } from "react";
-import "./sidebar.scss";
-// import { List, ListItem, ListItemText } from "@mui/material";
-// import { Link, useLocation } from "react-router-dom";
-// import UserList from "../../component/UserManagement/UserList";
 
 // function Sidebar() {
 //     const [expanded, setExpanded] = useState([]);
@@ -94,9 +89,8 @@ import "./sidebar.scss";
 //
 // export default Sidebar;
 // import React, {useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
 import "./sidebar.scss";
-// import Logo from "../../../assets/images/logo.png";
-// import {Link, useLocation, useNavigate} from "react-router-dom";
 import {
     Accordion,
     AccordionSummary,
@@ -121,8 +115,6 @@ import GearIcon from "../../../assets/icons/GearIcon";
 import GearFine from "../../../assets/icons/GearFine";
 import {useSelector} from "react-redux";
 import roleEnum from "../../../enums/role.enum";
-import toast from "bootstrap/js/src/toast";
-import {useEffect, useState} from "react";
 import {Link, useLocation, useNavigate} from "react-router-dom";
 
 function Sidebar() {
@@ -140,6 +132,7 @@ function Sidebar() {
             }
         });
     };
+
 
     const menuItem = [
         {
@@ -251,6 +244,20 @@ function Sidebar() {
                 },
             ],
         },
+        {
+            id: 16,
+            title: "User List Management",
+            to: "/userlist", // Home page or main dashboard
+            icon: <DashboardIcon/>,
+            children: [],
+        },
+        {
+            id: 17,
+            title: "Role Management",
+            to: "/rolelist", // Home page or main dashboard
+            icon: <DashboardIcon/>,
+            children: [],
+        },
     ];
 
     const sidebarPermissions = [
@@ -266,6 +273,8 @@ function Sidebar() {
                 xtFactoryUser: false,
                 xtStandardUser:true,
                 xtAdvanceUser:true,
+                ADMIN:true,
+                USER:true
             },
         },
         {
@@ -478,6 +487,24 @@ function Sidebar() {
                 xtFactoryUser: false,
             },
         },
+        {
+            id: 17,
+            mainTab: "User List Management",
+            subTab: "",
+            permissions: {
+               ADMIN:true,
+               USER:true
+            },
+        },
+        {
+            id: 18,
+            mainTab: "Role Management",
+            subTab: "",
+            permissions: {
+                ADMIN:true,
+                USER:true
+            },
+        },
     ];
 
     const userRole = useSelector((state) => state.auth.role);
@@ -488,12 +515,13 @@ function Sidebar() {
                 const permission = sidebarPermissions.find((perm) => {
                     return perm.mainTab === item.title;
                 });
-
+                console.log({permission})
                 let hasPermission = false;
                 if (permission) {
                     switch (userRole) {
                         case roleEnum.XT_ADMIN:
                             hasPermission = permission.permissions.xtAdmin;
+                            console.log({hasPermission})
                             break;
                         case roleEnum.CUSTOMER_ADMIN:
                             hasPermission = permission.permissions.customerAdmin;
@@ -513,7 +541,12 @@ function Sidebar() {
                         case roleEnum.XT_ADVANCE_USER:
                             hasPermission = permission.permissions.xtAdvanceUser;
                             break;
-
+                        case roleEnum.ADMIN:
+                            hasPermission = permission.permissions.ADMIN;
+                            break;
+                        case roleEnum.USER:
+                            hasPermission = permission.permissions.USER;
+                            break;
                         default:
                             hasPermission = false;
                     }
@@ -534,24 +567,36 @@ function Sidebar() {
     };
     const filteredMenuItems = filterMenuItems(menuItem);
 
+    // In Sidebar.js - Fix useEffect for initial expansion
     useEffect(() => {
-        // if (userRole === roleEnum.XT_FACTORY_USER) {
-        //   setExpanded([3, 2]);
-        // }
-        const path = location.pathname
-        const currentPage = menuItem.find(item => {
-            if (item.children?.length > 0) {
-                return item.children.find(childItem => {
-                    return childItem.to === path
-                })
-            } else {
-                if (path.includes('dashboard') && item.to.includes('dashboard')) {
-                    return item;
-                }
+        const path = location.pathname;
+
+        // Initialize empty array for expanded items
+        let expandedItems = [];
+
+        // Find which top-level menu item should be expanded based on current path
+        for (const item of menuItem) {
+            // Check if current path matches this item or any of its children
+            const isCurrentPath = item.to === path;
+            const hasMatchingChild = item.children?.some(child => child.to === path);
+
+            if (isCurrentPath || hasMatchingChild) {
+                expandedItems.push(item.id);
+                break;
             }
-        })
-        setExpanded([currentPage.id])
-    }, [userRole]);
+        }
+
+        // Special handling for dashboard
+        if (path.includes('dashboard')) {
+            const dashboardItem = menuItem.find(item => item.to.includes('dashboard'));
+            if (dashboardItem) {
+                expandedItems.push(dashboardItem.id);
+            }
+        }
+        console.log({expandedItems})
+        // Update expanded state
+        setExpanded(expandedItems);
+    }, [location.pathname]);
 
     return (
         <div className="sidebar">
@@ -580,7 +625,7 @@ function Sidebar() {
 
 const MenuItem = ({item, expanded, handleChange, selected}) => {
     const Component =
-        item.children && item.children.length > 0 ? SingleLevel : SingleLevel;
+        item.children && item.children.length > 0 ? MultiLevel : SingleLevel;
     return (
         <Component
             item={item}
@@ -591,23 +636,59 @@ const MenuItem = ({item, expanded, handleChange, selected}) => {
     );
 };
 
+// const SingleLevel = ({item}) => {
+//     const navigate = useNavigate();
+//
+//     const handleLogout = () => {
+//         localStorage.removeItem("access_token");
+//         // toast.success(userLoggedOutSuccess);
+//         navigate("/", {replace: true});
+//     };
+//
+//     const checkRightsAndLogout = async (to) => {
+//         if (to === "logout") {
+//             handleLogout();
+//         } else {
+//         }
+//     };
+//     // eslint-disable-next-line no-restricted-globals
+//     const isActive = location.pathname === item.to || (location.pathname.includes('dashboard') && item.to.includes('dashboard'));
+//
+//     return (
+//         <div className="nav-link-main">
+//             <Link
+//                 to={item.to}
+//                 className={`nav-link ${isActive ? "active" : ""}`}
+//                 onClick={() => checkRightsAndLogout(item.to)}
+//                 activeClassName="active"
+//             >
+//                 <ListItem button>
+//                     {item.icon && <span className="menu-icon">{item.icon}</span>}
+//                     <ListItemText primary={item.title}/>
+//                 </ListItem>
+//             </Link>
+//         </div>
+//     );
+// };
+// Fix SingleLevel component in Sidebar.js
 const SingleLevel = ({item}) => {
     const navigate = useNavigate();
+    const location = useLocation(); // Add this line to get location
 
     const handleLogout = () => {
         localStorage.removeItem("access_token");
-        // toast.success(userLoggedOutSuccess);
         navigate("/", {replace: true});
     };
 
     const checkRightsAndLogout = async (to) => {
         if (to === "logout") {
             handleLogout();
-        } else {
         }
     };
-    // eslint-disable-next-line no-restricted-globals
-    const isActive = location.pathname === item.to || (location.pathname.includes('dashboard') && item.to.includes('dashboard'));
+
+    // Fix isActive check to properly compare paths
+    const isActive = location.pathname === item.to ||
+        (location.pathname.includes('dashboard') && item.to.includes('dashboard'));
 
     return (
         <div className="nav-link-main">
@@ -615,7 +696,6 @@ const SingleLevel = ({item}) => {
                 to={item.to}
                 className={`nav-link ${isActive ? "active" : ""}`}
                 onClick={() => checkRightsAndLogout(item.to)}
-                activeClassName="active"
             >
                 <ListItem button>
                     {item.icon && <span className="menu-icon">{item.icon}</span>}
@@ -625,7 +705,6 @@ const SingleLevel = ({item}) => {
         </div>
     );
 };
-
 const MultiLevel = ({item, expanded, handleChange}) => {
     const {children} = item;
 

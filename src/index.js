@@ -16,7 +16,7 @@ import { DndProvider } from 'react-dnd';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-console.log("Test")
+// console.log("Test")
 root.render(
     // <React.StrictMode>
     <DndProvider backend={HTML5Backend}>

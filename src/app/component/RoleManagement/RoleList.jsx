@@ -24,7 +24,6 @@ export const RoleList = () => {
             const res = await getUserRoles();
             if (res.status === 200) {
                 setRoles(res.data);
-                console.log({roles});
             } else {
                 console.error("Failed to fetch roles:", res);
             }
@@ -34,7 +33,6 @@ export const RoleList = () => {
     };
 
     const handleDeleteDataSource = (roles) => {
-        console.log({roles});
         setStatusText(`You want to Delete ${roles["roleName"]} roles ?`)
         setDeleteRoleId(roles["id"])
         setIsDeletingRole(true)
@@ -61,7 +59,6 @@ export const RoleList = () => {
         }
     };
     const deleteDataSourceById = (deleteRoleId) => {
-        console.log({deleteRoleId})
         // const { intl } = this.props;
         // this.setState({
         //     isGetLoading: false,

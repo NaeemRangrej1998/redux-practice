@@ -9,12 +9,10 @@ import {Link, useNavigate} from "react-router-dom";
 import {Button} from "react-bootstrap";
 import showNotification from "../../../shared/helper/notification";
 function ForgotPassword() {
-    console.log("Naim")
+    // console.log("Naim")
     const [userName,setUserName]=useState('')
     const navigate=useNavigate();
     const baseUrl = `${window.location.protocol}//${window.location.host}/`;
-    console.log(baseUrl);
-
     function handleSubmit(event) {
         event.preventDefault()
         try {
@@ -23,7 +21,7 @@ function ForgotPassword() {
                 hostName:baseUrl
             }
             getUserEmail(request).then((res)=>{
-                console.log({res});
+                // console.log({res});
                 if (res.status === 200) {
                     navigate('/login');
                     showNotification(res.message,'success');
@@ -31,14 +29,14 @@ function ForgotPassword() {
                     throw res
                 }
             }).catch((error)=>{
-                console.log(error)
+                // console.log(error)
                 let message =error.response.data.error
                 showNotification(message,'error');
                 console.log(error)
             })
         }
         catch (error){
-            console.log(error)
+            // console.log(error)
         }
 
     }

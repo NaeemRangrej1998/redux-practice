@@ -8,13 +8,12 @@ import Layout from "../../Layout";
 
 export default [{
     path: "/sub-dashboard",
-    roles: [roles.XT_ADMIN, roleEnum.CUSTOMER_ADMIN, roleEnum.ADVANCE_USER, roleEnum.STANDARD_USER, roleEnum.XT_STANDARD_USER, roleEnum.XT_ADVANCE_USER],
+    roles: [roles.XT_ADMIN, roleEnum.CUSTOMER_ADMIN, roleEnum.ADVANCE_USER, roleEnum.STANDARD_USER, roleEnum.XT_STANDARD_USER, roleEnum.XT_ADVANCE_USER,roleEnum.ADMIN],
     element: <Dashboard/>
-
-},
+    },
     {
         path: "/dashboard",
-        roles: [roles.XT_ADMIN, roleEnum.CUSTOMER_ADMIN, roleEnum.ADVANCE_USER, roleEnum.STANDARD_USER, roleEnum.XT_STANDARD_USER, roleEnum.XT_ADVANCE_USER],
+        roles: [roles.XT_ADMIN, roleEnum.CUSTOMER_ADMIN, roleEnum.ADVANCE_USER, roleEnum.STANDARD_USER, roleEnum.XT_STANDARD_USER, roleEnum.XT_ADVANCE_USER,roleEnum.ADMIN],
         element: <DashIndex/>
 
     },

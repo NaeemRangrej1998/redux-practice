@@ -8,7 +8,7 @@ export const axiosInstance = axios.create({
 })
 
 axiosInstance.interceptors.request.use(config => {
-        const token = localStorage.getItem("accessToken")
+        const token = localStorage.getItem("access_token")
         if (token) {
             config.headers.Authorization = `Bearer ${token}`
         }
@@ -29,7 +29,7 @@ axiosInstance.interceptors.response.use(
         };
         if (error.response.status === 401) {
             // Handle token expiration here (refresh token or redirect to login)
-            console.log('Unauthorized, logging out...');
+            // console.log('Unauthorized, logging out...');
             localStorage.removeItem('accessToken'); // Clear the token
             window.location.href = '/login'; // Redirect to login
         }

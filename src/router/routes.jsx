@@ -16,41 +16,38 @@ import Protected from "./Protected";
 import DashboardRoutes from "../app/pages/Dashboard/DashboardRoutes";
 import XtAdminRoutes from "../app/pages/XtAdmin/XtAdminRoutes";
 import TcuFwManagementRoutes from "../app/pages/TcuFwManagement/TcuFwManagementRoutes";
+import ManageUserRoutes from "../app/component/ManageUsers/ManageUserRoutes";
+import RoleRoutes from "../app/component/RoleManagement/RoleRoutes";
 
 export const ProtectedRoutes = {
     path: "",
     element: <App />,
     children: [
-        {
-            path: "/userlist", // Test route
-            element: <UserList/>,
-        },
-        {
-            path: "/rolelist", // Test route
-            element: <RoleList/>,
-        },
-        {
-            path: "/taskManage", // Test route
-            element: <ManageTask/>,
-        },
-        {
-            path: "/DailogPractice", // Test route
-            element: <DailogPractice/>,
-        },
+        // {
+        //     path: "/userlist", // Test route
+        //     element: <UserList/>,
+        // },
+        // {
+        //     path: "/rolelist", // Test route
+        //     element: <RoleList/>,
+        // },
+        // {
+        //     path: "/taskManage", // Test route
+        //     element: <ManageTask/>,
+        // },
+        // {
+        //     path: "/DailogPractice", // Test route
+        //     element: <DailogPractice/>,
+        // },
         ...generateRouteConfig(UserManagementRoutes),
         ...generateRouteConfig(DashboardRoutes),
         ...generateRouteConfig(TcuManagementRoutes),
         ...generateRouteConfig(XtAdminRoutes),
         ...generateRouteConfig(TcuFwManagementRoutes),
+        ...generateRouteConfig(ManageUserRoutes),
+        ...generateRouteConfig(RoleRoutes)
         // Add other child routes here
     ],
-    // children: [
-    //     ...generateRouteConfig(UserManagementRoutes),
-    //     ...generateRouteConfig(DashboardRoutes),
-    //     ...generateRouteConfig(TcuManagementRoutes),
-    //     ...generateRouteConfig(XtAdminRoutes),
-    //     ...generateRouteConfig(TcuFwManagementRoutes),
-    // ],
 };
 
 export const PublicRoutes = [
@@ -66,11 +63,6 @@ export const PublicRoutes = [
         path: "/reset-password",
         element: <ResetPassword />,
     }
-    // ,
-    // {
-    //     path: "*",
-    //     element: <Navigate to="/login" replace />,
-    // },
 ];
 
 
@@ -94,6 +86,5 @@ export function generateRouteConfig(routes, roles) {
 
         routesConfig.push(routeObj);
     });
-    console.log(routesConfig);
     return routesConfig;
 }

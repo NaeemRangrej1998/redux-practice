@@ -10,7 +10,6 @@ export const UPDATE_USER = USER + "/updateUser"
 export const GET_USER_BY_ID = USER + "/getUser"
 
 export function getAllUsers(pageNumber, pageSize,searchValue) {
-    console.log({pageNumber,pageSize,searchValue});
     return axiosInstance.get(`${GET_ALL_USERS}?searchValue=${searchValue}&pageNo=${pageNumber}&pageSize=${pageSize}`).then((res) => res)
 }
 

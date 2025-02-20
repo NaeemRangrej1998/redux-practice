@@ -23,7 +23,6 @@ function AddUser(props) {
             const res = await getUserRoles();
             if (res.status === 200) {
                 setRoles(res.data);
-                console.log({roles});
             } else {
                 console.error("Failed to fetch roles:", res);
             }
@@ -69,7 +68,7 @@ function AddUser(props) {
                                 lastName: values.lastName,
                                 email: values.email,
                                 password: values.password,
-                                roleId: values.roleId,
+                                userRoleId: values.roleId,
                             };
                             if (isEditing){
                                 data["id"]=selectedUser.id
@@ -79,13 +78,10 @@ function AddUser(props) {
                                 if (res.status && res.status == 200) {
                                     toggleAddUser()
                                     getAllSavedUsers()
-                                    console.log("save", res)
                                 } else throw res
                             }).catch((error) => {
-                                console.log({error})
                                 alert(error.response.data.error)
                             })
-                            console.log({values});
                         }}>
                     {({
                           values,
