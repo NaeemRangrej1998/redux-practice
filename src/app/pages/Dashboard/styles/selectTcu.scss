@@ -1,0 +1,77 @@
+.select-tcu-conatainer {
+  .select-tcu-btn {
+    text-transform: none;
+    background-color: #e87423;
+    color: white;
+    display: flex;
+    justify-content: space-around;
+    width: 180px !important;
+    // padding: 10px;
+
+    margin-right: 10px;
+
+    &:hover {
+      background-color: #df640c;
+    }
+
+    svg {
+      margin-right: 4px;
+    }
+
+    .four-leaf {
+      padding-left: 10px;
+      align-items: center;
+    }
+  }
+  .popover-content {
+    .action-buttons {
+      margin: 10px;
+      text-transform: none;
+    }
+
+    .grid-container {
+      .search-container-select {
+        .search-field-tcu {
+          width: 488px;
+          .MuiInputBase-root {
+            border-radius: 15px;
+          }
+        }
+      }
+      .select-tcu-table {
+      }
+    }
+  }
+
+  .datepicker-cancel-btn {
+    background-color: #000 !important;
+    color: #fff !important;
+  }
+  .apply-btn {
+    background-color: #e87423 !important;
+    color: #fff !important;
+
+    &:hover {
+      background-color: #df640c !important; // Darker green on hover
+    }
+  }
+
+  .MuiButtonBase-root {
+    .MuiPickersDay-root {
+      .Mui-selected {
+        background-color: #df640c;
+      }
+    }
+  }
+
+  .MuiPickersDay-today {
+    background-color: #df640c !important;
+    padding: "8px 16px 8px 16px" !important;
+    border-radius: 8px;
+  }
+  .MuiPickersDay-root.Mui-selected {
+    background-color: #df640c !important;
+    border-radius: 8px;
+    padding: "8px 16px 8px 16px" !important;
+  }
+}

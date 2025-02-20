@@ -1,0 +1,258 @@
+.tcu-list-container {
+  .grid-container {
+    .right-section {
+      display: flex;
+      justify-content: flex-start; // Aligns content to the right
+      align-items: center; // Aligns vertically in the middle (optional)
+
+      .heading-left {
+        // font-size: 24px;
+        height: 28px;
+      }
+    }
+
+    .bottom-section {
+      // background-color: aqua;
+    }
+    .container-two {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      // flex-direction:;
+      flex-wrap: wrap;
+    }
+    .search-field {
+      width: 488px;
+      .MuiInputBase-root {
+        border-radius: 15px;
+      }
+    }
+
+    .button-add {
+      text-transform: none; // Prevent uppercase transformation
+      background-color: #e87423; // Green background for Add button
+      color: white;
+      height: 36px;
+      width: 88px;
+
+      &:hover {
+        background-color: #df640c; // Darker green on hover
+      }
+
+      svg {
+        margin-right: 4px; // Spacing for icon in the button
+      }
+    }
+    .button-delete {
+      text-transform: none;
+      background-color: #e87423; // Green background for Add button
+      color: white;
+      height: 36px;
+      width: 106px;
+
+      &:hover {
+        background-color: #df640c; // Darker green on hover
+      }
+
+      svg {
+        margin: 0 5px 5px 0;
+
+        // margin-right: 4px; // Spacing for icon in the button
+      }
+      .icon {
+        vertical-align: middle;
+      }
+    }
+
+    .MuiButtonBase-root {
+      &.hover {
+        color: #ccc;
+      }
+    }
+
+    .MuiTableContainer-root {
+      max-height: calc(100vh - 322px);
+    }
+
+    .MuiTableCell-head:last-child {
+      border-top-right-radius: 10px;
+      border-bottom-right-radius: 10px;
+    }
+    .MuiTableCell-head:first-child {
+      border-top-left-radius: 10px;
+      border-bottom-left-radius: 0px !important;
+    }
+    .tcu-table-div {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      .MuiTableCell-body {
+        padding: 10px 14px;
+      }
+      .MuiTableContainer-root {
+        border-radius: 10px;
+        &::-webkit-scrollbar {
+          //&:hover {
+            height: 8px;
+          //}
+        }
+        &::-webkit-scrollbar-thumb {
+          cursor: pointer;
+          &:hover {
+            height: 10px;
+          }
+        }
+      }
+    }
+
+    .MuiPagination-ul {
+      justify-content: flex-end;
+      margin-top: 5px;
+    }
+    .MuiTableCell-head {
+      background: #000 !important;
+      color: white !important;
+      margin: 0;
+      padding: 0 8px !important;
+      border-left: 1px solid #ccc !important;
+      justify-content: space-between;
+      padding-left: 13px;
+      border-spacing: 1px;
+
+      .MuiCheckbox-root {
+        color: white;
+        .Mui-checked {
+          color: #e87423;
+        }
+      }
+    }
+
+    .MuiTableCell-body {
+      // padding: 0;
+      padding-top: 4px;
+      padding-bottom: 4px;
+    }
+    .MuiCheckbox-root {
+      color: rgba(0, 0, 0, 0.2);
+      .Mui-checked {
+        color: #e87423;
+      }
+    }
+
+    .Mui-selected {
+      background-color: #9d8c81;
+    }
+
+    .MuiCheckbox-indeterminate {
+      color: #e87423 !important;
+    }
+
+    .Mui-active {
+      // color: #e87423 !important;
+      color: #fff !important;
+    }
+    /* tableSortLabel.css */
+    .customSortLabel {
+      color: #fff;
+      display: flex;
+      align-items: center;
+      padding: 0px !important;
+      justify-content: space-between;
+      // padding-left: 10px;
+      min-height: 50px !important;
+      font-size: 12px!important;
+      font-weight: 600 !important;
+      padding-right: 20px !important;
+      svg {
+        min-height: 16px;
+        min-width: 16px;
+        position: absolute;
+        right: 0;
+      }
+    }
+    .customSortLabel:hover {
+      color: #ccc;
+    }
+
+    .customSortLabelActive {
+      color: #e87423;
+    }
+
+    .customSortIcon {
+      align-items: end;
+    }
+
+    .MuiCheckbox-root.Mui-checked {
+      color: #e87423; // Use your theme color
+    }
+
+    .Mui-selected {
+      background-color: rgba(
+        0,
+        0,
+        0,
+        0.2
+      ) !important; // Use your light orange theme color
+    }
+
+    .MuiTableRow-root.Mui-selected:hover {
+      background-color: #fcd4b5 !important;
+    }
+
+    .MuiTableSortLabel-root {
+      padding-left: 10px !important;
+    }
+
+    .MuiTableCell-body {
+      min-width: 10px;
+      border-left: none;
+      padding-top: 4px;
+      padding-bottom: 4px;
+
+      // width: auto;
+      // white-space: nowrap;
+    }
+    .MuiTableCell-root {
+    }
+
+    .MuiTableCell-body {
+      // padding: 0; // Adjust padding if necessary
+    }
+
+    .tcu-table {
+      //border-collapse: collapse; /* Optional: Collapse borders */
+    }
+    .tcu-table th,
+    .tcu-table td {
+      border-left: none;
+      //border-right: none;
+      // border:none
+    }
+    th:last-child{
+      //position: sticky;
+      //right: 0;
+      background-color: #000;
+      border-top-right-radius: 10px;
+      border-bottom-right-radius: 10px;
+      z-index: 1; /* Keeps it above other elements when scrolled */
+      color: white;
+    }
+
+    .MuiTableCell-head {
+      background: #000 !important;
+      color: white !important;
+      margin: 0;
+      padding: 0 8px !important;
+      //border-left: 1px solid #ccc !important;
+      justify-content: space-between;
+      padding-left: 13px;
+
+      .MuiCheckbox-root {
+        color: white;
+        .Mui-checked {
+          color: #e87423;
+        }
+      }
+    }
+  }
+}

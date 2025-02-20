@@ -1,0 +1,235 @@
+.associated-tcu-group-dialog {
+    .grid-container {
+     
+      .right-section {
+        display: flex;
+        justify-content: flex-start; // Aligns content to the right
+        align-items: center; // Aligns vertically in the middle (optional)
+  
+        .heading-left {
+          // font-size: 24px;
+          height: 28px;
+        }
+      }
+  
+      .bottom-section {
+        // background-color: aqua;
+      }
+      .container-two {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        // flex-direction:;
+        flex-wrap: wrap;
+      }
+      // .search-field {
+      //   width: 488px;
+      // }
+      
+  
+      .button-add {
+        text-transform: none; // Prevent uppercase transformation
+        background-color: #e87423; // Green background for Add button
+        color: white;
+        height: 36px;
+        width: 88px;
+  
+        &:hover {
+          background-color: #df640c; // Darker green on hover
+        }
+  
+        svg {
+          margin-right: 4px; // Spacing for icon in the button
+        }
+      }
+      .button-delete {
+        text-transform: none;
+        background-color: #e87423; // Green background for Add button
+        color: white;
+        height: 36px;
+        width: 106px;
+  
+        &:hover {
+          background-color: #df640c; // Darker green on hover
+        }
+  
+        svg {
+          margin: 0 5px 5px 0;
+  
+          // margin-right: 4px; // Spacing for icon in the button
+        }
+        .icon {
+          vertical-align: middle;
+        }
+      }
+  
+      .MuiButtonBase-root {
+        &.hover {
+          color: #ccc;
+        }
+      }
+  
+      .MuiTableContainer-root {
+        max-height: 100%;
+      }
+  
+      .MuiTableCell-head:last-child {
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+      }
+      .MuiTableCell-head:first-child {
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px;
+      }
+  
+      .table-div {
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        .MuiPaper-rounded {
+          border-radius: 10px !important;
+        }
+      }
+  
+      .MuiPagination-ul {
+        justify-content: flex-end;
+        margin-top: 5px;
+      }
+      .MuiTableCell-head {
+        background: #000 !important;
+        color: white !important;
+        margin: 0;
+        padding: 0;
+        border-left: 1px solid #ccc !important;
+        justify-content: space-between;
+  
+        .MuiCheckbox-root {
+          color: white;
+          .Mui-checked {
+            color: #e87423;
+          }
+        }
+      }
+  
+      .MuiTableCell-body {
+        padding: 10px !important;
+      }
+      .MuiCheckbox-root {
+        color: rgba(0, 0, 0, 0.2);
+        .Mui-checked {
+          color: #e87423;
+        }
+      }
+  
+      .Mui-selected {
+        background-color: #9d8c81;
+      }
+  
+      .MuiCheckbox-indeterminate {
+        color: #e87423 !important;
+      }
+  
+      .Mui-active {
+        // color: #e87423 !important;
+        color: #fff !important;
+      }
+      /* tableSortLabel.css */
+      .customSortLabel {
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px;
+        min-height: 50px !important;
+      }
+      .customSortLabel:hover {
+        color: #ccc;
+      }
+  
+      .customSortLabelActive {
+        color: #e87423;
+      }
+  
+      .customSortIcon {
+        align-items: end;
+      }
+  
+      .MuiCheckbox-root.Mui-checked {
+        color: #e87423; // Use your theme color
+      }
+  
+      .Mui-selected {
+        background-color: rgba(
+          0,
+          0,
+          0,
+          0.2
+        ) !important; // Use your light orange theme color
+      }
+  
+      .MuiTableRow-root.Mui-selected:hover {
+        background-color: #fcd4b5 !important;
+      }
+  
+      .MuiTableSortLabel-root {
+        padding-left: 10px;
+      }
+  
+      .MuiTableCell-body {
+        min-width: 10px;
+        border-left: none;
+        // width: auto;
+        // white-space: nowrap;
+      }
+  
+      .MuiTableCell-body {
+        padding: 0 10px; // Adjust padding if necessary
+      }
+  
+      .user-grp-table {
+        border-collapse: collapse; /* Optional: Collapse borders */
+      }
+      .user-grp-table th,
+      .user-grp-table td {
+        border-left: none;
+        border-right: none;
+        // border:none
+      }
+    }
+  
+    button {
+      margin-left: 8px; // Space between buttons
+      text-transform: none;
+      background-color: gray;
+      padding: 15px 45px !important;
+      border-radius: 8px;
+      border: none;
+    }
+    .cancel-btn {
+      background-color: rgba(0, 0, 0, 0.05);
+      color: #000; /* White text */
+      &:hover {
+        background-color: #8f8f8f; /* Darker red on hover */
+      }
+    }
+  
+    .MuiDialog-paper {
+      background-color: white; // Customize the dialog background
+      padding: 16px; // Inner padding
+      border-radius: 19px !important; // Rounded corners
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); // Custom box shadow
+       max-width: 800px !important;
+       min-width: 800px !important;
+       max-height: 677px !important;
+       min-height: 677px !important;
+  
+       .search-field {
+        width: 350px;
+        .MuiInputBase-root{
+          border-radius: 15px !important;
+      }
+      }
+    }
+  }
+  

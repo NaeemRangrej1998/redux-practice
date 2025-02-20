@@ -1,0 +1,79 @@
+.modify-tcu-config {
+  .MuiDialog-container {
+    .MuiDialog-paper {
+      border-radius: 19px;
+      width: 695px;
+      height: auto;
+      max-height: calc(100vh - 90px) !important;
+      padding: 35px;
+      overflow: auto;
+    }
+
+    .MuiDialogTitle-root {
+      font-size: 26px;
+      font-weight: 600;
+      display: flex;
+      line-height: 28.8px;
+      justify-content: center;
+      margin-bottom: 1px;
+      text-align: center;
+    }
+
+    .MuiGrid-root h4 {
+      margin-bottom: 2px;
+      margin-top: 10px;
+      justify-content: left;
+      display: flex;
+      font-size: 15px;
+      line-height: 20px;
+    }
+
+    .MuiTextField-root {
+      border-radius: 40px !important;
+      height: 40px;
+
+      .MuiOutlinedInput-root {
+        border-radius: 15px;
+        border: 0.5px black;
+        height: 50px;
+      }
+
+      .MuiDialogContent-root .MuiTextField-root:nth-of-type(3) {
+        width: 416px !important;
+      }
+    }
+
+    .MuiDialogActions-root {
+      justify-content: space-evenly;
+      margin-top: 10px;
+
+      .MuiButtonBase-root {
+        text-transform: none;
+        font-size: 16px;
+        background-color: black;
+        color: white;
+        width: 200px;
+        height: 56px;
+        border-radius: 16px;
+      }
+
+      .cancel-button {
+        background-color: var(--black-5, #0000000D) !important;
+        color: black;
+      }
+
+      .cancel-button:hover {
+        background-color: #989898 !important;
+      }
+
+      .MuiButtonBase-root:hover {
+        background-color: #989898;
+      }
+
+      .Mui-disabled {
+        background-color: #989898 !important;
+        color: #FFFFFF !important;
+      }
+    }
+  }
+}

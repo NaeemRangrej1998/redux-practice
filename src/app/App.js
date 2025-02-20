@@ -1,44 +1,47 @@
 import '../App.css';
-import { useSelector} from "react-redux";
-import {Suspense, useEffect, useState} from "react";
+import { useSelector } from "react-redux";
+import { Suspense, useEffect, useState } from "react";
 import Layout from "./Layout";
 import Login from "./component/Login/Login";
-import {Navigate, useLocation, useNavigate} from "react-router-dom";
+import { Navigate, useLocation, useNavigate } from "react-router-dom";
 import BlockLoader from "../shared/components/Loader/BlockLoader";
 
 function App() {
-    const {token, role} = useSelector(state => state.auth)
+    const { token, role } = useSelector(state => state.auth);
     const navigate = useNavigate();
-    const location = useLocation()
+    const location = useLocation();
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [isLoading, setIsLoading] = useState(true);
 
+    // Simplified authentication check
     useEffect(() => {
-        checkAuth()
-    }, [])
+        const authToken = localStorage.getItem('accessToken');
 
-    const checkAuth = () => {
-
-        const authToken = localStorage.getItem('accessToken')
-        if (authToken && token ) {
+        if (authToken && token) {
             setIsLoggedIn(true);
-            navigate(location.pathname);
+            // Only navigate if we're not already on a valid path
+            if (location.pathname === '/') {
+                navigate('/dashboard');
+            }
         } else {
             setIsLoggedIn(false);
-            navigate('/logout')
+            navigate('/login');
         }
-        setIsLoading(false); // Set loading to false once check is done
-    };
 
-    useEffect(() => {
-        checkAuth();
-    }, [token, role]);
+        setIsLoading(false);
+    }, [token, role, navigate, location.pathname]);
+
     if (isLoading) {
-        return <BlockLoader isMain={true} />; // Show loader while checking auth
+        return <BlockLoader isMain={true} />;
     }
+
+    // Simplified rendering logic
+    if (!token) {
+        return <Navigate to="/login" />;
+    }
+
     return (
         <>
-            {!token && <Navigate to={'/login'} /> }
             {isLoggedIn ? (
                 <Suspense fallback={<BlockLoader isMain={true} />}>
                     <Layout />
@@ -47,9 +50,7 @@ function App() {
                 <Login />
             )}
         </>
-
-
-    )
+    );
 }
 
 export default App;

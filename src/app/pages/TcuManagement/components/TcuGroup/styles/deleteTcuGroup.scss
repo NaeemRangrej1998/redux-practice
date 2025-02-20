@@ -1,0 +1,54 @@
+// deleteDialog.scss
+.delete-dialog {
+    .MuiDialog-paper {
+      background-color: white; // Customize the dialog background
+      // padding: 16px; // Inner padding
+      border-radius: 8px; // Rounded corners
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); // Custom box shadow
+      min-width: 200px !important; // Limit dialog width
+      min-height: 88px !important; // Limit dialog width
+      max-height: 178px !important;
+  
+    }
+    .MuiDialogContent-root{
+      overflow: hidden; // Remove scroll
+      padding-bottom: 0;
+  
+    }
+  
+    .MuiDialogTitle-root {
+      font-size: 24px; // Title font size
+      font-weight: bold; // Bold title
+      text-align: center; // Center the text
+    }
+  
+    .MuiDialogActions-root {
+      // margin-top: 16px; // Margin for action buttons
+      display: flex; // Flex layout for buttons
+      // justify-content: flex-end; // Align buttons to the right
+    
+      button {
+        margin-left: 8px; // Space between buttons
+        text-transform: none;
+        // background-color: gray;
+        padding: 15px 45px !important;
+        border-radius: 8px;
+        border: none;
+      }
+      .cancel-btn {
+        background-color: rgba(0, 0, 0, 0.05);
+        color: #000 !important;              
+        &:hover {   
+          background-color: #8f8f8f; 
+        }
+      }
+      .delete-btn{
+        color:white;
+        background-color: #000;
+        &:hover {   
+          background-color: #8f8f8f;
+        }
+      }
+  }
+  }
+  

@@ -1,0 +1,95 @@
+.date-picker-container {
+  .calander-btn {
+    text-transform: none;
+    background-color: #e87423;
+    color: white;
+    width: 340px !important;
+
+    margin-right: 10px;
+
+    &:hover {
+      background-color: #989898; // Darker green on hover
+    }
+
+    svg {
+      margin-right: 4px;
+    }
+  }
+  .popover-content {
+    .action-buttons {
+      margin: 10px;
+      text-transform: none;
+    }
+    .MuiMenuItem-root {
+      background: #EDF0F3 !important;
+      &.filter-menu-active {
+        background-color: #e87423 !important;
+        color: white !important;
+      }
+    }
+  }
+}
+.popover-content {
+  .action-buttons {
+    margin: 10px;
+    text-transform: none;
+  }
+  .MuiMenuItem-root {
+    background: #EDF0F3 !important;
+    &.filter-menu-active {
+      background-color: #e87423 !important;
+      color: white !important;
+    }
+  }
+}
+
+.datepicker-cancel-btn {
+  background-color: #000 !important;
+  color: #fff !important;
+}
+.apply-btn {
+  background-color: #e87423 !important;
+  color: #fff !important;
+
+  &:hover {
+    background-color: #df640c !important; // Darker green on hover
+  }
+}
+
+.MuiButtonBase-root {
+  .MuiPickersDay-root {
+    .Mui-selected {
+      background-color: #df640c;
+    }
+  }
+}
+
+.MuiPickersDay-today {
+  background-color: #df640c !important;
+  padding: "8px 16px 8px 16px" !important;
+  border-radius: 8px;
+}
+.MuiPickersDay-root.Mui-selected {
+  background-color: #df640c !important;
+  border-radius: 8px;
+  padding: "8px 16px 8px 16px" !important;
+}
+
+.popover-content-two {
+  margin-right: -2px !important;
+  // padding: 0 !important;
+  position: relative;
+  left: -5px;
+  height: 344px;
+  max-height: 344px;
+}
+
+.date-filter-popover {
+  .MuiPaper-root {
+    max-width: 340px;
+    width: 340px;
+  }
+}
+
+
+//  Mui-selected MuiPickersDay-dayWithMargin MuiPickersDay-today css-cov8um-MuiButtonBase-root-MuiPickersDay-root

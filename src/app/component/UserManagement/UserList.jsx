@@ -10,7 +10,7 @@ import {IconButton} from "@mui/material";
 import {Edit, Delete} from "@mui/icons-material";
 import {debounce} from "lodash";
 
-const columns = [{id: 'firstName', label: 'First Name'}, {id: 'lastName', label: 'Last Name'}, {id: 'email', label: 'Email'}, {id: 'roleId', label: 'Role'},];
+const columns = [{id: 'firstName', label: 'First Name'}, {id: 'lastName', label: 'Last Name'}, {id: 'email', label: 'Email'}, {id: 'userRole', label: 'Role'},];
 
 // const handleInputChanges = (e) => {
 //     setPage(1)

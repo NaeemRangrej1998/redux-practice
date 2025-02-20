@@ -1,0 +1,201 @@
+.tcu-fw-upgarde-container {
+    .grid-container {
+      .right-section {
+        display: flex;
+        justify-content: flex-start; // Aligns content to the right
+        align-items: center; // Aligns vertically in the middle (optional)
+  
+        .heading-left {
+          // font-size: 24px;
+          height: 28px;
+        }
+      }
+  
+      .bottom-section {
+        // background-color: aqua;
+      }
+      .container-two {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        // flex-direction:;
+        flex-wrap: wrap;
+      }
+      .search-field {
+        width: 488px;
+        .MuiInputBase-root {
+          border-radius: 15px;
+        }
+      }
+  
+    
+  
+      .MuiButtonBase-root {
+        &.hover {
+          color: #ccc;
+        }
+      }
+  
+      .MuiTableContainer-root {
+        max-height: calc(100vh - 322px);
+      }
+      .MuiTableCell-body {
+        // min-width: 10px;
+        border-left: none;
+        // width: auto;
+        // white-space: nowrap;
+      }
+      .MuiTableCell-head:last-child {
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+      }
+      .MuiTableCell-head:first-child {
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px;
+      }
+  
+      .tcu-fw-upgrade-table-div {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        .MuiPaper-rounded {
+          border-radius: 10px !important;
+        }
+      
+        .MuiTableCell-body {
+          padding: 10px 14px;
+        }
+        .MuiTableContainer-root {
+
+          &::-webkit-scrollbar {
+            //&:hover {
+            height: 8px;
+            //}
+          }
+          &::-webkit-scrollbar-thumb {
+            cursor: pointer;
+            &:hover {
+              height: 10px;
+            }
+          }
+        }
+      }
+  
+      .MuiPagination-ul {
+        justify-content: flex-end;
+        margin-top: 5px;
+      }
+      .MuiTableCell-head {
+        background: #000 !important;
+        color: white !important;
+        margin: 0;
+        padding: 0 8px !important;
+        border-left: 1px solid #ccc !important;
+        justify-content: space-between;
+        // padding-left: 13px;
+  
+        .MuiCheckbox-root {
+          color: white;
+          .Mui-checked {
+            color: #e87423;
+          }
+        }
+    }
+     
+  
+     
+  
+      .Mui-active {
+        // color: #e87423 !important;
+        color: #fff !important;
+      }
+      /* tableSortLabel.css */
+      .customSortLabel {
+        color: #fff;
+        display: flex;
+        align-items: center;
+        padding: 0px !important;
+        justify-content: space-between;
+        // padding-left: 10px;
+        min-height: 50px !important;
+        font-size: 12px!important;
+        font-weight: 600 !important;
+      }
+      .customSortLabel:hover {
+        color: #ccc;
+      }
+  
+      .customSortLabelActive {
+        color: #e87423;
+      }
+  
+      .customSortIcon {
+        align-items: end;
+      }
+  
+      .MuiCheckbox-root.Mui-checked {
+        color: #e87423; // Use your theme color
+      }
+  
+      .Mui-selected {
+        background-color: rgba(
+          0,
+          0,
+          0,
+          0.2
+        ) !important; // Use your light orange theme color
+      }
+  
+      .MuiTableRow-root.Mui-selected:hover {
+        background-color: #fcd4b5 !important;
+      }
+  
+      .MuiTableSortLabel-root {
+        padding-left: 10px !important;
+      }
+  
+    
+      
+  
+      .tcu-table {
+        border-collapse: collapse; /* Optional: Collapse borders */
+      }
+      .tcu-table th,
+      .tcu-table td {
+        border-left: none;
+        border-right: none;
+        // border:none
+      }
+      th:last-child{
+        position: sticky;
+        right: 0;
+        background-color: #000;
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+        z-index: 1; /* Keeps it above other elements when scrolled */
+        color: white;
+      }
+    }
+
+    .button-trip {
+      text-transform: none; // Prevent uppercase transformation
+      background-color: #e87423; // Green background for Add button
+      color: white;
+      margin-right: 10px;
+      padding: 8px;
+    
+      &:hover {
+        background-color: #df640c; // Darker green on hover
+      }
+    
+      svg {
+        margin-right: 4px; 
+      }
+      .MuiCircularProgress-svg {
+        margin: 0 !important;
+        height: 20px;
+        width: 20px;
+      }
+    }
+  }
+  

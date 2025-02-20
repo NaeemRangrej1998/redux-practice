@@ -1,0 +1,82 @@
+.associated-users-dialog {
+    .grid-container {
+      .container-two {
+        display: flex;
+        justify-content: space-between;
+        align-items: center; // Align vertically in the center
+      }
+      .search-container {
+        margin-left: auto; // Push the search bar to the right side
+      }
+    }
+  
+    .user-group-name-container {
+      .user-group-name-label {
+        font-weight: 700;
+      }
+      .user-group-name-field {
+        width: 100%; // Make the input field take full width
+      }
+    }
+  
+    .MuiDialog-paper {
+      background-color: white;
+      padding: 16px;
+      border-radius: 19px !important;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      max-width: 867px !important;
+      min-width: 867px !important;
+      max-height: 695px;
+      min-height: 695px;
+    }
+  
+    .MuiDialogTitle-root {
+      font-size: 24px;
+      font-weight: bolder;
+      margin-bottom: 16px;
+      text-align: center;
+    }
+  
+    .MuiDialogContent-root {
+      margin-top: 0;
+    }
+  
+    .MuiDialogActions-root {
+      margin-top: 16px;
+      display: flex;
+      justify-content: flex-end;
+  
+      button {
+        margin-left: 8px;
+        text-transform: none;
+        background-color: gray;
+        padding: 15px 45px !important;
+        border-radius: 8px;
+        margin-bottom: 20px;
+        margin-right: 20px;
+        .close-btn {
+            background-color: rgba(0, 0, 0, 0.05);
+            color: #000;
+            &:hover {
+              background-color: #8f8f8f;
+            }
+      }
+  
+      
+      }
+  
+      .create-grp {
+        background-color: #000;
+        color: white;
+        &:hover {
+          background-color: #111111;
+        }
+      }
+    }
+  
+    .user-grp-table {
+      border-collapse: collapse;
+      height: 425px;
+    }
+  }
+  

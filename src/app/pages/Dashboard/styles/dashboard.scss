@@ -1,0 +1,102 @@
+
+
+.dashboardContainer{
+    overflow-y: auto !important;
+    .css-dboonq-MuiTypography-root {
+        font-size: "15px !important"
+    }
+   
+      .table-div-body{
+        padding: 16px;
+
+      }
+
+      .MuiTableCell-head{
+        border-left: 1px solid #ccc !important;
+
+      }
+      
+}
+
+.trip-analysis {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.trip-analysis-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.trip-analysis-header h1 {
+  font-size: 24px;
+  margin: 0;
+}
+
+.trip-analysis-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.delete-button,
+.settings-button,
+//.tab-button,
+.add-tab-button {
+  background-color: #f7f9fb;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+
+  .MuiSvgIcon-root{
+    height: 0.8em;
+  }
+}
+
+.tabs {
+  display: flex;
+  gap: 10px;
+  //margin-top: 0px;    /* Space above the tabs */
+  margin-bottom: 10px;
+  padding-bottom: 5px;
+  //scroll-behavior: smooth;
+}
+
+.tab-button {
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #E87423;
+  color: #FBE0B8;
+  transition: background-color 0.3s;
+  cursor: pointer;
+  font-size: 1em;
+  font-weight: 400;
+  //width: 50px;
+}
+
+//.tab-button:hover {
+//  background-color: #E87423;
+//  color: white;
+//}
+
+.underline {
+  height: 2px;               /* Height of the underline */
+  background-color: #ccc;    /* Color of the underline */
+  margin: 5px 0;             /* Space above and below the underline */
+}
+
+.bordered-container {
+  border: 1px solid #ccc; /* Border color */
+  //border-radius: 8px;     /* Rounded corners */
+  padding: 15px;          /* Inner padding */
+  margin-top: 20px;       /* Space above the container */
+  overflow: hidden;
+  min-height: 308px;
+}
+
+.chart-container {
+  margin-top: 20px;
+}

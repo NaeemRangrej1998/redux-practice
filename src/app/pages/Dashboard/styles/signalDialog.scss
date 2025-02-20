@@ -1,0 +1,101 @@
+// AddNewsignalGroup.scss
+
+.add-new-signal-group-dialog {
+  .grid-container{
+    .container-two {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      // flex-direction:;
+      flex-wrap: wrap;
+    }
+    .signal-group-name-field {
+      width: 40%; // Make the input field take full width
+      .MuiInputBase-root{
+        border-radius: 15px !important;
+      }
+    }
+  }
+
+  .grid-container .MuiTableContainer-root {
+    max-height: calc(100vh - 440px);
+  }
+  .signal-group-name-container {
+    .signal-group-name-label {
+      //   margin-bottom: 4px; // Space between the label and input
+      //   display: block; // Make label take full width
+      // margin-bottom: 30px !important;
+      font-weight: 700;
+      border-radius: 15px !important;
+    }
+
+
+  }
+
+  .MuiDialog-paper {
+    background-color: white; // Customize the dialog background
+    padding: 16px; // Inner padding
+    border-radius: 19px !important; // Rounded corners
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); // Custom box shadow
+    max-width: 1160px !important;
+    min-width: 1160px !important;
+    //max-height: 700px !important;
+    //min-height: 10px !important;
+    max-height: calc(100vh - 70px) !important;
+    //min-height: 400px !important;
+    overflow: hidden !important;
+  }
+
+  .MuiDialogTitle-root {
+    font-size: 24px; // Title font size
+    font-weight: bolder; // Bold title
+    margin-bottom: 16px; // Margin below the title
+    text-align: center; // Center the text
+  }
+
+  .MuiDialogContent-root {
+    margin-top: 0; // Reset margin for content
+    //overflow-y: hidden;
+    //max-height: 300px;
+    // Additional custom styles can be added here
+  }
+
+  .MuiDialogActions-root {
+    margin-top: 50px !important; // Margin for action buttons
+    display: flex; // Flex layout for buttons
+    justify-content: flex-end; // Align buttons to the right
+
+    .Mui-disabled {
+      background-color: #989898 !important;
+      color: #FFFFFF !important;
+    }
+    button {
+      margin-left: 8px; // Space between buttons
+      text-transform: none;
+      background-color: gray;
+      padding: 15px 45px !important;
+      border-radius: 8px;
+    }
+    .cancel-btn {
+      background-color: rgba(0, 0, 0, 0.05);
+      cursor: pointer;
+      color: #000;              /* White text */
+      &:hover {
+        background-color: #8f8f8f; /* Darker red on hover */
+      }
+    }
+
+    .create-grp {
+      background-color: #000; /* Green background */
+      color: white;              /* White text */
+      &:hover {
+        background-color: #111111; /* Darker green on hover */
+      }
+    }
+
+
+
+  }
+
+
+}

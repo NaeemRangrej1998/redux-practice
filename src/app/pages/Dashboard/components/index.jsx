@@ -1,11 +1,11 @@
 import React from "react";
+const DashIndex = () => {
 
-const UserList = () => {
   return (
     <div>
-      Naim
+      DashIndex
     </div>
   );
 };
 
-export default UserList;
+export default DashIndex;

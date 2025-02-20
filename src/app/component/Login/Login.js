@@ -7,6 +7,9 @@ import {setTokenInLocalStorage} from "../../../service/TokenManage";
 import {useDispatch} from "react-redux";
 import {Link, useNavigate} from "react-router-dom";
 import showNotification from "../../../shared/helper/notification";
+import {jwtDecode} from 'jwt-decode';
+import redirectionEnum from "../../../enums/redirection.enum";
+
 function Login() {
     console.log("Naim")
     const [userName,setUserName]=useState('')
@@ -23,15 +26,23 @@ function Login() {
             userLogin(request).then((res)=>{
                 if (res.status && res.status===200)
                 {
-                    localStorage.setItem('accessToken', res.data.token)
-                    setTokenInLocalStorage(res.data.token)
+                    const token = res.data.token;
+                    localStorage.setItem('accessToken',token)
+                    // setTokenInLocalStorage(res.data.token)
                     dispatch(setToken(res.data.token));
-                    navigate('/dashboard')
+                    const decodedToken = jwtDecode(token);
+                    console.log({decodedToken})
+                    const roles = decodedToken.APPLICATION_ROLE || '';
+                    dispatch(setRole(roles))
+                    console.log({roles})
+                    setTimeout(() => {
+                        navigate(redirectionEnum[roles]);
+                    }, 150)
                 }
                 else {
                     throw res
                 }
-                console.log({res})
+                // console.log({res})
             }).catch((error)=>{
                 let message =error.response.data.error
                 showNotification(message,'error');

@@ -1,0 +1,55 @@
+.delete-signal-modal {
+  .MuiDialog-container {
+    .MuiDialog-paper {
+      border-radius: 19px;
+      width: 575px;
+      height: 200px;
+      min-height: 230px;
+      max-height: calc(50vh - 90px) !important;
+      padding: 20px;
+      overflow: hidden;
+      display: grid;
+    }
+
+    .MuiDialogTitle-root {
+      font-size: 26px;
+      font-weight: 600;
+      display: flex;
+      line-height: 28.8px;
+      justify-content: center;
+      margin-bottom: 1px;
+      text-align: center;
+    }
+
+    .MuiDialogActions-root {
+      justify-content: space-evenly;
+      //margin-top: 35px !important;
+
+      .MuiButtonBase-root {
+        text-transform: none;
+        font-size: 16px;
+        background-color: black;
+        color: white;
+        width: 200px;
+        height: 56px;
+        border-radius: 16px;
+      }
+      .Mui-disabled {
+        background-color: #989898 !important;
+        color: #FFFFFF !important;
+      }
+      .cancel-button {
+        background-color: var(--black-5, #0000000d) !important;
+        color: black;
+      }
+
+      .cancel-button:hover {
+        background-color: #989898 !important;
+      }
+
+      .MuiButtonBase-root:hover {
+        background-color: #989898;
+      }
+    }
+  }
+}

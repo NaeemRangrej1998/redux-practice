@@ -1,0 +1,246 @@
+
+.table-div-head{
+  .db-table{
+    .MuiTableCell-head{
+      // padding: 0 8px !important;
+    }
+
+    .customSortLabel{
+      font-size: 12px!important;
+      font-weight: 600 !important;
+      // padding: 0 !important;
+    }
+  }
+
+  .search-field {
+    .MuiOutlinedInput-root{
+      border-radius: 15px !important;
+
+    }
+    width: 300px; // Set a fixed width for the search bar
+  }
+
+}
+
+.table-div {
+  .MuiPaper-rounded {
+    border-radius: 10px !important;
+  }
+
+ 
+
+
+}
+
+.db-table {
+  .MuiTableSortLabel-root.Mui-active{
+    color: white !important;
+  
+   }
+  .MuiTableContainer-root {
+    max-height: 100%;
+  }
+
+  .MuiTableCell-head:last-child {
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+  }
+  .MuiTableCell-head:first-child {
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+  }
+  .MuiTableCell-head {
+    background: #000 !important;
+    margin: 0;
+    padding: 0 8px !important;
+    // padding: 0;
+    border-left: 1px solid #ccc !important;
+    justify-content: space-between;
+
+    .MuiCheckbox-root {
+      color: white;
+      .Mui-checked {
+        color: #e87423;
+      }
+    }
+  }
+
+  .MuiTableCell-body {
+    padding-top: 4px;
+	padding-bottom: 4px;
+    // padding-left: 10px !important;
+    // padding-right: 10px !important;
+  }
+  .MuiCheckbox-root {
+    color: rgba(0, 0, 0, 0.2);
+    .Mui-checked {
+      color: #e87423;
+    }
+  }
+
+  .db-table .MuiTableSortLabel-root {
+    // padding-left: 10px;
+    .Mui-active {
+      // color: #e87423 !important;
+      color: #fff !important;
+    }
+}
+  .Mui-selected {
+    background-color: #9d8c81;
+  }
+
+  .MuiCheckbox-indeterminate {
+    color: #e87423 !important;
+  }
+
+  
+  /* tableSortLabel.css */
+  .customSortLabel {
+    color: #fff !important;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    // padding: 10px;
+    min-height: 50px !important;
+    font-size: 12px!important;
+    font-weight: 600 !important;
+  }
+  .customSortLabel:hover {
+    color: #ccc !important;
+  }
+
+  .customSortLabelActive {
+    color: #e87423 !important;
+  }
+
+  .customSortIcon {
+    align-items: end;
+  }
+
+  .MuiCheckbox-root.Mui-checked {
+    color: #e87423; // Use your theme color
+  }
+
+  .Mui-selected {
+    background-color: rgba(
+      0,
+      0,
+      0,
+      0.2
+    ) !important; // Use your light orange theme color
+  }
+
+  .MuiTableRow-root.Mui-selected:hover {
+    background-color: #fcd4b5 !important;
+  }
+
+  .MuiTableSortLabel-root {
+    padding-left: 10px;
+  }
+
+  .MuiTableCell-body {
+    min-width: 10px;
+    border-left: none;
+    // width: auto;
+    // white-space: nowrap;
+    text-align: left;
+
+  }
+
+  .MuiTableCell-body {
+    // padding: 0; // Adjust padding if necessary
+  }
+
+  .MuiInputBase-input {
+    padding: 2px;
+    min-width: 10px;
+    width: 150px;
+    font-size: 15px;
+    border: none;
+    -webkit-text-fill-color:#000;
+   .Mui-disabled{
+    }
+   
+    
+  }
+  .MuiTableSortLabel-root.Mui-active{
+    color: white !important;
+  
+   }
+
+
+}
+
+.table-div-head{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 16px;
+  font-size: 20px;
+  font-weight: bold;
+  .button-trip {
+    text-transform: none; // Prevent uppercase transformation
+    background-color: #e87423; // Green background for Add button
+    color: white;
+    margin-right: 10px;
+  
+    &:hover {
+      background-color: #df640c; // Darker green on hover
+    }
+    &:disabled {
+      color: white !important;
+      background-color: #e8752378 !important;
+    }
+  
+    svg {
+      margin-right: 4px; 
+    }
+    .MuiCircularProgress-svg {
+      margin: 0 !important;
+      height: 20px;
+      width: 20px;
+    }
+  }
+
+  .button-selected-trip{
+    margin-right: 10px;
+    text-transform: none; // Prevent uppercase transformation
+    background-color: #e87423; // Green background for Add button
+    color: white;
+    &:hover {
+        background-color: #df640c; // Darker green on hover
+      }
+  }
+}
+.MuiTableSortLabel-root.Mui-active{
+  color: white !important;
+
+ }
+.table-div-body{
+  margin-top: 5px;
+}
+.MuiPagination-ul{
+  justify-content: end !important;
+}
+
+
+.trip-export-btn {
+  text-transform: none !important;
+  background-color: #e87423 !important;
+  color: white !important;
+  // height: 38px;
+  // width: 88px;
+  padding: 0 2px 0px 2px !important;
+
+  font-size: 11px !important;
+
+  &:hover {
+    background-color: #df640c !important; // Darker green on hover
+  }
+  &:disabled {
+    color: white !important;
+    background-color: #e8752378 !important;
+  }
+}
+

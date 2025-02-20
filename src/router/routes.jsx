@@ -10,15 +10,17 @@ import DailogPractice from "../app/component/Dailoag/DailogPractice";
 import ForgotPassword from "../app/component/Login/ForgotPassword";
 import ResetPassword from "../app/component/Login/ResetPassword";
 import ManageTask from "../dragAndDrop/ManageTask";
+import UserManagementRoutes from "../app/pages/UserManagement/UserManagementRoutes";
+import TcuManagementRoutes from "../app/pages/TcuManagement/TcuManagementRoutes";
+import Protected from "./Protected";
+import DashboardRoutes from "../app/pages/Dashboard/DashboardRoutes";
+import XtAdminRoutes from "../app/pages/XtAdmin/XtAdminRoutes";
+import TcuFwManagementRoutes from "../app/pages/TcuFwManagement/TcuFwManagementRoutes";
 
 export const ProtectedRoutes = {
     path: "",
     element: <App />,
     children: [
-        {
-            path: "/dashboard",
-            element: <IndexDashboard />, // Example child route
-        },
         {
             path: "/userlist", // Test route
             element: <UserList/>,
@@ -35,6 +37,11 @@ export const ProtectedRoutes = {
             path: "/DailogPractice", // Test route
             element: <DailogPractice/>,
         },
+        ...generateRouteConfig(UserManagementRoutes),
+        ...generateRouteConfig(DashboardRoutes),
+        ...generateRouteConfig(TcuManagementRoutes),
+        ...generateRouteConfig(XtAdminRoutes),
+        ...generateRouteConfig(TcuFwManagementRoutes),
         // Add other child routes here
     ],
     // children: [
@@ -67,3 +74,26 @@ export const PublicRoutes = [
 ];
 
 
+export function generateRouteConfig(routes, roles) {
+    const routesConfig = [];
+    routes.forEach((route) => {
+        const routeObj = {};
+        routeObj.path = route.path;
+
+        if (route.element) {
+            routeObj.element = (
+                <Protected path={route.path} roles={route.roles || roles}>
+                    {route.element}
+                </Protected>
+            );
+        }
+
+        if (route.children) {
+            routeObj.children = generateRouteConfig(route.children, route.roles);
+        }
+
+        routesConfig.push(routeObj);
+    });
+    console.log(routesConfig);
+    return routesConfig;
+}
