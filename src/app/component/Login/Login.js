@@ -7,6 +7,7 @@ import {Link, useNavigate} from "react-router-dom";
 import showNotification from "../../../shared/helper/notification";
 import {jwtDecode} from 'jwt-decode';
 import redirectionEnum from "../../../enums/redirection.enum";
+import BlockLoader from "../../../shared/components/Loader/BlockLoader";
 
 function Login() {
     const [userName,setUserName]=useState('')
@@ -14,6 +15,7 @@ function Login() {
     const navigate=useNavigate();
     const dispatch=useDispatch()
     const {token, role} = useSelector(state => state.auth)
+    const [isLoading, setIsLoading] = useState(false);
 
     useEffect(() => {
         const authToken = localStorage.getItem('authToken')
@@ -31,10 +33,12 @@ function Login() {
                 email:userName,
                 password:password
             }
+            setIsLoading(true);
             userLogin(request).then((res)=>{
                 if (res.status && res.status===200)
                 {
                     const token = res.data.token;
+                    setIsLoading(false);
                     // Use consistent key name
                     localStorage.setItem('access_token', token) // Match the key used in Sidebar.js SingleLevel component
                     dispatch(setToken(res.data.token));
@@ -56,6 +60,7 @@ function Login() {
             }).catch((error)=>{
                 let message = error.response?.data?.error || "Login failed"
                 showNotification(message,'error');
+                setIsLoading(false);
             })
         }
         catch (error){
@@ -76,6 +81,7 @@ function Login() {
                     <Link to="/forgot-password">Forgot Password?</Link>
                 </div>
             </form>
+            <BlockLoader isLoading={isLoading}/>
         </div>
     )
 }

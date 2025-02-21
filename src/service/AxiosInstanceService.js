@@ -1,5 +1,6 @@
 import axios from "axios";
 import config from "bootstrap/js/src/util/config";
+import showNotification from "../shared/helper/notification";
 
 export const BASE_URL = 'http://localhost:8080/';
 
@@ -34,10 +35,11 @@ axiosInstance.interceptors.response.use(
             window.location.href = '/login'; // Redirect to login
         }
         else if(error.response.status === 403){
-            window.location.href = '/login';
+            showNotification("You Are Not Authorized To Proceed",'error');
         }
         else if (error.response.data && error.response.data.message) {
             response = error.response.data ? error.response.data : response;
+            showNotification(response,'error');
             throw response;
         } else {
             throw response;

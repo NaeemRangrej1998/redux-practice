@@ -6,6 +6,7 @@ import {Link} from "react-router-dom";
 import AlertDialog from "../Dailoag/AlertDialog";
 import showNotification from "../../../shared/helper/notification";
 import AddEditRole from "./AddEditRole";
+import {getPermission} from "../../../service/permission.api";
 export const RoleList = () => {
     const [roles, setRoles] = useState([]);
     const [statusText,setStatusText] =useState('')
@@ -16,8 +17,11 @@ export const RoleList = () => {
     const [isEditing, setIsEditing] = useState(false)
     const [roleName, setRoleName] = useState('')
     const [roleId, setRoleId] = useState('')
+    const [activateRole, setActivateRole] = useState([])
+    const [roleWithPrmission, setRoleWithPrmission] = useState([])
     useEffect(() => {
-        getAllRoles()
+        getAllRoles();
+        getAllPermission();
     }, []);
     const getAllRoles = async () => {
         try {
@@ -31,6 +35,27 @@ export const RoleList = () => {
             console.error("Error fetching roles:", err);
         }
     };
+
+    const getAllPermission = () => {
+        try {
+            getPermission().then((response)=>{
+                if (response.status && response.status===200){
+                    const {data: responseData = []} = response;
+                    const formattedPermissions = responseData.map(item => ({
+                        label: item.permissionName,
+                        value: item.id
+                    }));
+                    console.log({formattedPermissions})
+                    setActivateRole(formattedPermissions);
+                }
+                else throw response
+            }).catch((error)=>{
+                console.log({error})
+            })
+        } catch (error) {
+
+        }
+    }
 
     const handleDeleteDataSource = (roles) => {
         setStatusText(`You want to Delete ${roles["roleName"]} roles ?`)
@@ -112,9 +137,11 @@ export const RoleList = () => {
     }
 
     const editRole =(roles) =>{
+        console.log(roles)
         setIsOpen(true)
         setIsEditing(true)
         setRoleName(roles['roleName'])
+        setRoleWithPrmission(roles['permissions'])
         setRoleId(roles['id'])
     }
     return (
@@ -125,7 +152,7 @@ export const RoleList = () => {
                         <Card.Header>
                             <Card.Title>
                                 <div className="table-title">
-                                    <h5>Manage Dashboards</h5>
+                                    <h5>Manage Roles</h5>
                                     <Button
                                         className={"ml-auto"}
                                         variant="primary"
@@ -175,6 +202,8 @@ export const RoleList = () => {
                 isEditing={isEditing}
                 roleName={roleName}
                 roleId={roleId}
+                activateRole={activateRole}
+                selectedPermissionWithRole={roleWithPrmission}
             />
             <AlertDialog
                 confirmText={"Yes"}

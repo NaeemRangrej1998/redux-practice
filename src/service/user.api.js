@@ -8,6 +8,8 @@ export const UPDATE_USER = USER + "/updateUser"
 
 
 export const GET_USER_BY_ID = USER + "/getUser"
+export const DELETE_USER_BY_ID = USER + "/deleteUser"
+
 
 export function getAllUsers(pageNumber, pageSize,searchValue) {
     return axiosInstance.get(`${GET_ALL_USERS}?searchValue=${searchValue}&pageNo=${pageNumber}&pageSize=${pageSize}`).then((res) => res)
@@ -25,4 +27,8 @@ export function updateUser(data) {
 
 export function getUserById(userId) {
     return axiosInstance.get(`${GET_USER_BY_ID}/${userId}`).then((res)=>res)
+}
+
+export function deleteUserById(deleteUserId){
+    return axiosInstance.delete(`${DELETE_USER_BY_ID}/${deleteUserId}`).then((res)=>res)
 }
