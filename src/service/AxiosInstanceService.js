@@ -1,5 +1,4 @@
 import axios from "axios";
-import config from "bootstrap/js/src/util/config";
 import showNotification from "../shared/helper/notification";
 
 export const BASE_URL = 'http://localhost:8080/';
