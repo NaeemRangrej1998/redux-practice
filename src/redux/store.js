@@ -9,7 +9,12 @@ const persistConfig = {
     version: 1,
     storage,
 };
-
+const logger = (store)=>(next)=>(action)=>{
+    console.log('store:' ,store)
+    console.log('next:' ,next)
+    console.log('action:' ,action)
+    next(action)
+}
 const persistedReducer = persistReducer(persistConfig, authSlice);
 export const store = configureStore({
         reducer: {
@@ -19,7 +24,7 @@ export const store = configureStore({
     middleware: (getDefaultMiddleware) =>
         getDefaultMiddleware({
             serializableCheck: false, // Disable checks for non-serializable data
-        }),
+        }).concat(logger),
     }
 );
 

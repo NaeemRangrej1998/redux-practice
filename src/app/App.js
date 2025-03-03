@@ -62,7 +62,8 @@ function App() {
     useEffect(() => {
         const authToken = localStorage.getItem('access_token'); // Match the key used in Login.js
         const pathname = location.pathname;
-
+        console.log("loggedIn :0" + authToken && token && role)
+        console.log({authToken, token, role})
         if (authToken && token && role) {
             setIsLoggedIn(true);
             if (pathname === '/') {
