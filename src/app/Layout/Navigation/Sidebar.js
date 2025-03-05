@@ -258,6 +258,13 @@ function Sidebar() {
             icon: <DashboardIcon/>,
             children: [],
         },
+        {
+            id: 18,
+            title: "Permission Management",
+            to: "/manage-permission", // Home page or main dashboard
+            icon: <DashboardIcon/>,
+            children: [],
+        },
     ];
 
     const sidebarPermissions = [
@@ -499,6 +506,15 @@ function Sidebar() {
         {
             id: 18,
             mainTab: "Role Management",
+            subTab: "",
+            permissions: {
+                ADMIN:true,
+                USER:true
+            },
+        },
+        {
+            id: 18,
+            mainTab: "Permission Management",
             subTab: "",
             permissions: {
                 ADMIN:true,

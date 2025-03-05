@@ -19,6 +19,7 @@ import XtAdminRoutes from "../app/pages/XtAdmin/XtAdminRoutes";
 import TcuFwManagementRoutes from "../app/pages/TcuFwManagement/TcuFwManagementRoutes";
 import ManageUserRoutes from "../app/component/ManageUsers/ManageUserRoutes";
 import RoleRoutes from "../app/component/RoleManagement/RoleRoutes";
+import PermissionRoute from "../app/component/Permission/PermissionRoute";
 
 export const ProtectedRoutes = {
     path: "",
@@ -46,7 +47,9 @@ export const ProtectedRoutes = {
         ...generateRouteConfig(XtAdminRoutes),
         ...generateRouteConfig(TcuFwManagementRoutes),
         ...generateRouteConfig(ManageUserRoutes),
-        ...generateRouteConfig(RoleRoutes)
+        ...generateRouteConfig(RoleRoutes),
+        ...generateRouteConfig(PermissionRoute)
+
         // Add other child routes here
     ],
 };

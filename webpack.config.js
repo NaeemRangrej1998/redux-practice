@@ -1,6 +1,9 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
+const deps = require("./package.json").dependencies;
+
 const Dotenv = require('dotenv-webpack');
 
 module.exports = (env, argv) => {
@@ -16,6 +19,7 @@ module.exports = (env, argv) => {
         output: {
             filename: "bundle.js",
             path: path.resolve(__dirname, "dist"),
+            publicPath: "auto", // ✅ Fixes issues with loading remoteEntry.js
         },
         mode: argv.mode,
         devtool: 'source-map',
@@ -51,6 +55,18 @@ module.exports = (env, argv) => {
             ]
         },
         plugins: [
+            new ModuleFederationPlugin({
+                name: "shop",
+                filename: "remoteEntry.js",
+                remotes: {
+                    "catalog": "permissionApp@http://localhost:3010/remoteEntry.js",
+                },
+                exposes: {},
+                shared: {
+                    react: { singleton: true, strictVersion: true, requiredVersion: deps.react },
+                    "react-dom": { singleton: true, strictVersion: true, requiredVersion: deps["react-dom"] },
+                },
+            }),
             new HtmlWebpackPlugin({
                 template: "./public/index.html", // ✅ Ensure the correct path
                 filename: "index.html",
