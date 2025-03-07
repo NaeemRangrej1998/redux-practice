@@ -56,15 +56,20 @@ module.exports = (env, argv) => {
         },
         plugins: [
             new ModuleFederationPlugin({
-                name: "shop",
+                name: "container",
                 filename: "remoteEntry.js",
                 remotes: {
                     "catalog": "permissionApp@http://localhost:3010/remoteEntry.js",
                 },
-                exposes: {},
+                exposes: {
+                    "./store":"./src/redux/store.js"
+                },
                 shared: {
                     react: { singleton: true, strictVersion: true, requiredVersion: deps.react },
                     "react-dom": { singleton: true, strictVersion: true, requiredVersion: deps["react-dom"] },
+                    "react-redux": { singleton: true, strictVersion: true, requiredVersion: deps["react-redux"] },
+                    "@reduxjs/toolkit": { singleton: true, strictVersion: true, requiredVersion: deps["@reduxjs/toolkit"] },
+                    "redux-persist": { singleton: true, strictVersion: true, requiredVersion: deps["redux-persist"] }
                 },
             }),
             new HtmlWebpackPlugin({

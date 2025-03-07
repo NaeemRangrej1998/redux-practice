@@ -531,7 +531,7 @@ function Sidebar() {
                 const permission = sidebarPermissions.find((perm) => {
                     return perm.mainTab === item.title;
                 });
-                console.log({permission})
+                // console.log({permission})
                 let hasPermission = false;
                 if (permission) {
                     switch (userRole) {

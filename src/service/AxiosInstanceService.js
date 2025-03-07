@@ -177,7 +177,7 @@ export const request = (options) => {
 
 // Set logout time (15 minutes - 900000ms)
 const setLogoutTime = () => {
-    localStorage.setItem("AccessLogOut", new Date().getTime() + 90000);
+    localStorage.setItem("AccessLogOut", new Date().getTime() + 9000000);
 };
 
 // Check every 30 seconds if the user is inactive
@@ -194,7 +194,7 @@ setInterval(() => {
         // and redirect to login if no token is found
         window.location.reload();
     }
-}, 30000);
+}, 300000);
 
 // Initialize the logout timer when this file is first loaded
 setLogoutTime();
