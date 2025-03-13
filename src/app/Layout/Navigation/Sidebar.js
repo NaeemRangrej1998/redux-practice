@@ -265,6 +265,13 @@ function Sidebar() {
             icon: <DashboardIcon/>,
             children: [],
         },
+        {
+            id: 19,
+            title: "Analysis",
+            to: "/card", // Home page or main dashboard
+            icon: <DashboardIcon/>,
+            children: [],
+        },
     ];
 
     const sidebarPermissions = [
@@ -513,8 +520,17 @@ function Sidebar() {
             },
         },
         {
-            id: 18,
+            id: 19,
             mainTab: "Permission Management",
+            subTab: "",
+            permissions: {
+                ADMIN:true,
+                USER:true
+            },
+        },
+        {
+            id: 18,
+            mainTab: "Analysis",
             subTab: "",
             permissions: {
                 ADMIN:true,

@@ -20,6 +20,7 @@ import TcuFwManagementRoutes from "../app/pages/TcuFwManagement/TcuFwManagementR
 import ManageUserRoutes from "../app/component/ManageUsers/ManageUserRoutes";
 import RoleRoutes from "../app/component/RoleManagement/RoleRoutes";
 import PermissionRoute from "../app/component/Permission/PermissionRoute";
+import DashboardRoute from "../app/component/Dashboard/DashboardRoute";
 
 export const ProtectedRoutes = {
     path: "",
@@ -48,8 +49,8 @@ export const ProtectedRoutes = {
         ...generateRouteConfig(TcuFwManagementRoutes),
         ...generateRouteConfig(ManageUserRoutes),
         ...generateRouteConfig(RoleRoutes),
-        ...generateRouteConfig(PermissionRoute)
-
+        ...generateRouteConfig(PermissionRoute),
+        ...generateRouteConfig(DashboardRoute)
         // Add other child routes here
     ],
 };
