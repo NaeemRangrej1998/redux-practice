@@ -279,6 +279,13 @@ function Sidebar() {
             icon: <DashboardIcon/>,
             children: [],
         },
+        {
+            id: 21,
+            title: "Customer Page",
+            to: "/page", // Home page or main dashboard
+            icon: <DashboardIcon/>,
+            children: [],
+        },
     ];
 
     const sidebarPermissions = [
@@ -547,6 +554,15 @@ function Sidebar() {
         {
             id: 20,
             mainTab: "Product Analysis",
+            subTab: "",
+            permissions: {
+                ADMIN:true,
+                USER:true
+            },
+        },
+        {
+            id: 21,
+            mainTab: "Customer Page",
             subTab: "",
             permissions: {
                 ADMIN:true,

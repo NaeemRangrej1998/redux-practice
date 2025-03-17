@@ -463,7 +463,7 @@ export const UserList = () => {
                 showNotification(error.message, 'error');
             });
     };
-
+    console.log("user_data",user.data)
     return (
         <div>
             <Grid container style={{ width: '100%', overflow: 'auto' }} className="grid-container">
