@@ -116,6 +116,7 @@ import GearFine from "../../../assets/icons/GearFine";
 import {useSelector} from "react-redux";
 import roleEnum from "../../../enums/role.enum";
 import {Link, useLocation, useNavigate} from "react-router-dom";
+import Logo from "../../../assets/images/logo.jpg";
 
 function Sidebar() {
     const [expanded, setExpanded] = useState([]);
@@ -547,8 +548,7 @@ function Sidebar() {
             mainTab: "Analysis",
             subTab: "",
             permissions: {
-                ADMIN:true,
-                USER:true
+                SUPER_ADMIN:true,
             },
         },
         {
@@ -556,8 +556,7 @@ function Sidebar() {
             mainTab: "Product Analysis",
             subTab: "",
             permissions: {
-                ADMIN:true,
-                USER:true
+                SUPER_ADMIN:true,
             },
         },
         {
@@ -565,8 +564,7 @@ function Sidebar() {
             mainTab: "Customer Page",
             subTab: "",
             permissions: {
-                ADMIN:true,
-                USER:true
+                SUPER_ADMIN:true,
             },
         },
     ];
@@ -610,6 +608,9 @@ function Sidebar() {
                             break;
                         case roleEnum.USER:
                             hasPermission = permission.permissions.USER;
+                            break;
+                        case roleEnum.SUPER_ADMIN:
+                            hasPermission = permission.permissions.SUPER_ADMIN;
                             break;
                         default:
                             hasPermission = false;

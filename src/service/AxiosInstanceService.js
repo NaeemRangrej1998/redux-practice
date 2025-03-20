@@ -135,9 +135,11 @@ axiosInstance.interceptors.response.use(
             window.location.href = "/login";
         } else if (error.response && error.response.status === 403) {
             showNotification("You Are Not Authorized To Proceed", "error");
+            window.location.href = "/login";
         } else if (error.response && error.response.data && error.response.data.message) {
             response = error.response.data;
             showNotification(response.message, "error");
+            window.location.href = "/login";
             throw response;
         } else if (error.toString().includes("Network Error")) {
             // Handle network errors specifically

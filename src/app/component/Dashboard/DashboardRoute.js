@@ -6,17 +6,17 @@ import MuiTable from "./MuiTable";
 export default [
     {
         path: "/card",
-        roles: [roles.ADMIN, roles.USER],
+        roles: [roles.SUPER_ADMIN],
         element: <CardImpl/>
     },
     {
         path: "/analytics",
-        roles: [roles.ADMIN, roles.USER],
+        roles: [roles.SUPER_ADMIN],
         element: <Analitics/>
     },
     {
         path: "/page",
-        roles: [roles.ADMIN, roles.USER],
+        roles: [roles.SUPER_ADMIN],
         element: <MuiTable/>
     },
 ]

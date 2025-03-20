@@ -7,5 +7,6 @@ export default {
   XT_STANDARD_USER: 'XT Standard User',
   XT_ADVANCE_USER: 'XT Advance User',
   ADMIN:'ADMIN',
-  USER:'USER'
+  USER:'USER',
+  SUPER_ADMIN:'SUPER_ADMIN'
 };

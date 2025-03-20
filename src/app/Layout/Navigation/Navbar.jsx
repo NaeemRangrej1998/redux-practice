@@ -1,11 +1,13 @@
 import React, {useEffect, useState} from "react";
 import "./navbar.scss";
 // import {useNavigate} from "react-router-dom";
-import {Menu, MenuItem} from "@mui/base";
+import {Menu, MenuItem} from "@mui/material";
+import UsersIcon from "../../../assets/icons/UsersIcon";
+import {useNavigate} from "react-router-dom";
 
 function NavBar() {
     const [anchorEl, setAnchorEl] = useState(null);
-    // const navigate = useNavigate();
+    const navigate = useNavigate();
     // const [fullName, setFullName] = useState("");
 
     // useEffect(() => {
@@ -31,17 +33,23 @@ function NavBar() {
         <div className="navbar">
             <div
                 className="icons"
-                // onClick={handleMenuClick}
+                onClick={handleMenuClick}
                 style={{cursor: "pointer"}}
             >
-                <span className="initials">{"naim"}</span>
-                {/*<UsersIcon/>*/}
+                {/*<span className="initials">{"naim"}</span>*/}
+                <UsersIcon/>
             </div>
 
             <Menu
                 anchorEl={anchorEl}
                 open={Boolean(anchorEl)}
                 onClose={handleClose}
+                PaperProps={{
+                    style: {
+                        borderRadius: "10px",
+                        marginTop: "10px"
+                    }
+                }}
             >
                 <MenuItem
                     onClick={handleLogout}

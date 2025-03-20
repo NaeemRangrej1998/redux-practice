@@ -9,5 +9,6 @@ export default {
     [roleEnum.XT_ADVANCE_USER]: '/dashboard',
     [roleEnum.XT_STANDARD_USER]: '/dashboard',
     [roleEnum.ADMIN]:'/dashboard',
-    [roleEnum.USER]:'/dashboard'
+    [roleEnum.USER]:'/dashboard',
+    [roleEnum.SUPER_ADMIN]:'/card'
 };

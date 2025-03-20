@@ -7,6 +7,7 @@ import ShoppingBagIcon from "@mui/icons-material/ShoppingBag";
 import StorefrontIcon from "@mui/icons-material/Storefront";
 import BarChart from "../../../charts/BarChart";
 import StackBar from "../../../charts/StackBar";
+import TreeMap from "../../../charts/TreeMap";
 
 export const Analitics = () => {
     return (
@@ -89,14 +90,14 @@ export const Analitics = () => {
                 </Grid>
                 <Box height={20}/>
                 <Grid container spacing={2}>
-                    <Grid item xs={8}>
-                        <Card sx={{height: 40 + "vh"}}>
-                            <CardContent><BarChart/></CardContent>
-                        </Card>
-                    </Grid>
-                    <Grid item xs={4}>
-                        <Card sx={{height: 40 + "vh"}}>
-                            <CardContent><BarChart/></CardContent>
+                    {/*<Grid item xs={4}>*/}
+                    {/*    <Card sx={{height: 40 + "vh"}}>*/}
+                    {/*        <CardContent><BarChart/></CardContent>*/}
+                    {/*    </Card>*/}
+                    {/*</Grid>*/}
+                    <Grid item xs={12}>
+                        <Card sx={{height: 120 + "vh"}}>
+                            <CardContent><TreeMap/></CardContent>
                         </Card>
                     </Grid>
                 </Grid>
